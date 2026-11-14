@@ -27,6 +27,7 @@ La gramática viene del video explicativo editorial (documentos, datos, mapas, c
 2. Manos de colores girando perillas de una consola, vista cenital-isométrica: **manos como metáfora de poder y control**, rayado (hatching) para volumen y paleta primaria apagada sobre crema.
 3. Fantasma planchando: minimalismo, personaje sin rostro con dos puntos por ojos, fondos de color pleno, línea fina y grano de papel.
 4. **Video vertical de afiches con tipografía cinética** (15 s, referencia de **ritmo y montaje**, no de look): cada frase es un afiche de diseño suizo, con imagen central en blanco y negro, una sola forma roja detrás del sujeto, micro-tipografía decorativa y palabras que aparecen en sincronía con la voz. Corta cada ~1.5 s. Ver secciones 15 y 16.
+5. **Tutorial de collage animado estilo explainer** (70 s, vertical): grabados y fotos antiguas recortadas con borde blanco, papel rasgado, diarios viejos de fondo, un círculo plano de acento detrás y armado en stop-motion. Muestra el flujo con Higgsfield (imagen, luego animación y edición por prompt). Ver secciones 17 y 18, y [`/prompts/higgsfield.md`](../prompts/higgsfield.md).
 
 ---
 
@@ -285,6 +286,47 @@ Es el montaje para clips de 9:16 de 15 a 60 s. Viene de la referencia 4, adaptad
 - Personajes o escenas de películas y series: nada de propiedad intelectual ajena.
 - El rojo: nuestro acento es el naranja. El rojo queda para los actores y los datos negativos.
 - La foto en blanco y negro como look principal: la piel sigue siendo ilustración impresa, y la foto queda para personas reales en duotono.
+
+---
+
+## 17. Collage de archivo (segundo material)
+
+Tomado de la referencia 5. TRAMA trabaja con **dos materiales** que conviven en el mismo plano:
+
+| Material | Para qué | Cómo se ve |
+|---|---|---|
+| **Ilustración TRAMA** | Personajes, manos, metáforas, gente anónima | Vector, contorno de tinta, colores planos, trama |
+| **Recorte de archivo** | Lugares, edificios, máquinas, objetos, documentos, personas reales | Grabado antiguo o foto de archivo, recortado con borde de papel blanco |
+
+**Qué los une** (sin esto el collage se ve armado al azar):
+- Los recortes pasan por el mismo tratamiento: **duotono** (tinta + papel, o tinta + un color de la paleta), trama de puntos y grano.
+- Se pueden mezclar: una mano ilustrada sostiene un edificio grabado, o un grabado de fábrica larga humo ilustrado.
+- Los dos materiales comparten la sombra dura en tinta (desplazada 4–6 px, sin desenfoque).
+
+**Recursos del collage**
+- **Papel rasgado:** los cambios de plano y los bordes de capas grandes usan un corte irregular con la fibra blanca del papel a la vista.
+- **Fondo de diario viejo:** titulares y columnas en tinta al 10–20 %, desenfocados, como textura (nunca legibles como noticia real inventada).
+- **Círculo de acento:** el círculo plano naranja detrás del sujeto, compartido con el modo afiche.
+- **Anotación a mano:** círculo o subrayado de marcador mostaza dibujado en vivo sobre el detalle clave (por ejemplo, rodear una chimenea).
+- **Siluetas** de multitudes caminando en tinta plana, para "la gente" en escenas históricas.
+- **Elementos vivos:** humo, nubes de papel, pájaros recortados. Se mueven en stop-motion, nunca de forma fluida y realista.
+
+**Origen de las imágenes**
+- Los grabados y fotos antiguas salen de archivos de **dominio público** (bibliotecas nacionales, Wikimedia Commons, Library of Congress) o se generan con IA **solo cuando son genéricos** (un edificio, una fábrica, un tren).
+- Las personas reales siguen la regla de la sección 4.3: foto real con crédito, nunca generada.
+
+---
+
+## 18. Stop-motion y armado de escena
+
+La referencia 5 confirma la regla de "en dos": la escena se arma **pieza por pieza**, como alguien apoyando recortes sobre una mesa.
+
+- **Armado:** al empezar un plano, los recortes entran de a uno, cada 2 cuadros (15 fps), en una ráfaga de 0.5 a 1.5 s. Después la escena **se sostiene** de 3 a 5 s con movimiento mínimo.
+- **Boil de recortes:** en la ráfaga, cada pieza puede cambiar levemente de posición o rotación (±1°) en cada paso, como en el stop-motion real.
+- **Sin interpolación suave** en los elementos de collage: humo, nubes y pájaros avanzan a saltos.
+- La cámara sigue las reglas de la sección 8 (suave). El contraste entre collage a saltos y cámara suave es parte de la firma.
+
+**Montaje para formatos con conductor en cámara** (opcional): pantalla dividida en vertical, con la animación arriba (55–60 %) y la persona abajo, y subtítulos en mayúsculas en la línea de unión, palabra por palabra.
 
 ---
 

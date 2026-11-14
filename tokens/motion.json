@@ -82,5 +82,19 @@
       "tinta"
     ],
     "cierreSeg": 2
+  },
+  "stopMotion": {
+    "fps": 15,
+    "armadoSeg": [
+      0.5,
+      1.5
+    ],
+    "holdSeg": [
+      3,
+      5
+    ],
+    "jitterRotDeg": 1,
+    "elementosVivos": "a saltos, sin interpolación",
+    "camara": "suave (contraste intencional)"
   }
 }

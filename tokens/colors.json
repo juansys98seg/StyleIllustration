@@ -1,35 +1,101 @@
 {
   "$description": "Paleta TRAMA. Cada plano: tinta + papel + máximo 3 colores.",
   "base": {
-    "tinta":  { "value": "#17140F", "use": "contornos, texto, sombras" },
-    "papel":  { "value": "#F2E6CF", "use": "fondo base" }
+    "tinta": {
+      "value": "#17140F",
+      "use": "contornos, texto, sombras"
+    },
+    "papel": {
+      "value": "#F2E6CF",
+      "use": "fondo base"
+    }
   },
   "brand": {
-    "naranja": { "value": "#EE6A1F", "use": "marca, énfasis, alerta; 1 foco por plano" },
-    "mostaza": { "value": "#F3A72B", "use": "resaltador de documentos" },
-    "verde":   { "value": "#1F6E55", "use": "contexto, institucional" }
+    "naranja": {
+      "value": "#EE6A1F",
+      "use": "marca, énfasis, alerta; 1 foco por plano"
+    },
+    "mostaza": {
+      "value": "#F3A72B",
+      "use": "resaltador de documentos"
+    },
+    "verde": {
+      "value": "#1F6E55",
+      "use": "contexto, institucional"
+    }
   },
   "support": {
-    "rosa":  { "value": "#E79A8C", "use": "piel genérica" },
-    "acero": { "value": "#B8B5AE", "use": "metal, tecnología" },
-    "rojo":  { "value": "#CF3F2A", "use": "actores y datos negativos; nunca un partido" },
-    "azul":  { "value": "#2E5A9E", "use": "actores y datos; nunca un partido" }
+    "rosa": {
+      "value": "#E79A8C",
+      "use": "piel genérica"
+    },
+    "acero": {
+      "value": "#B8B5AE",
+      "use": "metal, tecnología"
+    },
+    "rojo": {
+      "value": "#CF3F2A",
+      "use": "actores y datos negativos; nunca un partido"
+    },
+    "azul": {
+      "value": "#2E5A9E",
+      "use": "actores y datos; nunca un partido"
+    }
   },
   "veracidad": {
-    "confirmado":   "#1F6E55",
-    "declaracion":  "#17140F",
+    "confirmado": "#1F6E55",
+    "declaracion": "#17140F",
     "sinConfirmar": "#EE6A1F",
-    "analisis":     "#17140F"
+    "analisis": "#17140F"
   },
   "bloques": {
-    "quePaso":       "#EE6A1F",
-    "contexto":      "#1F6E55",
+    "quePaso": "#EE6A1F",
+    "contexto": "#1F6E55",
     "porQueImporta": "#F3A72B",
-    "queViene":      "#F2E6CF"
+    "queViene": "#F2E6CF"
   },
   "textura": {
-    "trama":   { "angle": 45, "opacity": [0.15, 0.30] },
-    "grano":   { "opacity": [0.06, 0.08] },
-    "desregistroPx": [2, 4]
+    "trama": {
+      "angle": 45,
+      "opacity": [
+        0.15,
+        0.3
+      ]
+    },
+    "grano": {
+      "opacity": [
+        0.06,
+        0.08
+      ]
+    },
+    "desregistroPx": [
+      2,
+      4
+    ]
+  },
+  "collage": {
+    "recorteBorde": {
+      "color": "#FFFFFF",
+      "px": [
+        3,
+        5
+      ]
+    },
+    "sombraDura": {
+      "color": "#17140F",
+      "offsetPx": [
+        4,
+        6
+      ],
+      "blur": 0
+    },
+    "duotono": [
+      "tinta+papel",
+      "tinta+color de paleta"
+    ],
+    "diarioFondoOpacity": [
+      0.1,
+      0.2
+    ]
   }
 }
