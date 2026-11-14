@@ -28,6 +28,7 @@ La gramática viene del video explicativo editorial (documentos, datos, mapas, c
 3. Fantasma planchando: minimalismo, personaje sin rostro con dos puntos por ojos, fondos de color pleno, línea fina y grano de papel.
 4. **Video vertical de afiches con tipografía cinética** (15 s, referencia de **ritmo y montaje**, no de look): cada frase es un afiche de diseño suizo, con imagen central en blanco y negro, una sola forma roja detrás del sujeto, micro-tipografía decorativa y palabras que aparecen en sincronía con la voz. Corta cada ~1.5 s. Ver secciones 15 y 16.
 5. **Tutorial de collage animado estilo explainer** (70 s, vertical): grabados y fotos antiguas recortadas con borde blanco, papel rasgado, diarios viejos de fondo, un círculo plano de acento detrás y armado en stop-motion. Muestra el flujo con Higgsfield (imagen, luego animación y edición por prompt). Ver secciones 17 y 18, y [`/prompts/higgsfield.md`](../prompts/higgsfield.md).
+6. **Globo de glifos** (9.5 s, cuadrado): un planeta que gira, dibujado como grilla de símbolos (monedas, anillos) en un solo color sobre fondo azul plano. Ver sección 20.
 
 ---
 
@@ -354,6 +355,29 @@ python3 tools/trama_treat.py foto.jpg recorte.png --color mostaza --fondo verde
 Ejemplos con crédito en [`/examples/pexels-test`](../examples/pexels-test).
 
 **Crédito:** la licencia de Pexels no lo exige, pero el canal lo da igual en la descripción del video (fotógrafo + link), como parte de la regla de fuentes visibles.
+
+---
+
+## 20. Trama de glifos
+
+Tomado de la referencia 6 (un globo terráqueo que gira, dibujado como una grilla de símbolos sobre un fondo plano). Es la **trama de puntos llevada a datos**: en vez de puntos, cada celda es un símbolo que dice algo.
+
+**Cómo funciona**
+- La imagen se reduce a una grilla (celdas de 20–26 px en 1080).
+- Cada celda elige un glifo según su luminosidad: vacío → anillo chico → anillo → **moneda con símbolo**.
+- El símbolo es semántico y cambia con el tema: `$` dinero, `%` mercado, `✓`/`×` votos, `◆` chips, `!` alerta.
+- Dos colores nada más: fondo plano de la paleta + glifos en papel o naranja.
+
+**Cuándo usarla**
+- Globos y mapas (comercio, sanciones, exportaciones de chips).
+- Cifras y masas ("millones de usuarios", "miles de millones de dólares").
+- Siluetas simples con forma clara. Con fotos complejas no se lee: el origen tiene que tener figura y fondo bien separados.
+
+**Movimiento**
+- La fuente gira o se desplaza de forma suave (un globo rotando), y la grilla se recalcula a **15 fps**, lo que da el parpadeo de los glifos.
+- Los glifos pueden "encenderse" de a grupos para revelar una región del mapa.
+
+`tools/trama_glifos.py` genera la trama a partir de cualquier imagen, con los colores de la paleta. Prueba en [`/examples/glifos-test.jpg`](../examples/glifos-test.jpg).
 
 ---
 
