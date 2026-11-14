@@ -56,23 +56,29 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--tinta)}
   <div class="kin" data-lines='[["in","Jensen Huang fundó",0.20,1.45],["key","Nvidia hace 33 años",1.45,2.88]]'></div>
 </div>
 
-<!-- 2a · El 12 de noviembre -->
+<!-- 2a · El 12 de noviembre (foto + calendario) -->
 <div class="scene" id="s2" style="background:var(--tinta);color:var(--papel)">
   <div class="cam">
-    <div class="giant" data-slide="-120" style="left:-10px;top:1250px;color:var(--papel);opacity:.14">12·11</div>
+    <div class="giant" data-slide="-120" style="left:-10px;top:1330px;color:var(--papel);opacity:.13">12·11</div>
+    <div class="ring spin pz" data-at="0" style="left:150px;top:640px;width:780px;height:780px;border-color:var(--papel)"></div>
+    <div class="circ trama pz" data-at="0" style="left:210px;top:700px;width:660px;height:660px;--t:.25"></div>
+    <img class="cut pz drift" data-at="0.07" data-drift="-30" src="assets/huang_frente.png" style="left:250px;top:610px;width:580px;transform:rotate(-3deg)">
+    <div class="abs" id="cal" style="left:84px;top:1530px;font-family:Plex;font-weight:600;font-size:30px;letter-spacing:.08em;color:var(--papel);white-space:nowrap"></div>
     <div class="meta" style="left:84px;top:110px;color:var(--papel)">Nvidia · comunicado</div>
-    <div class="meta" style="right:84px;top:110px;text-align:right;color:var(--papel)">12 · 11 · 2026</div>
+    <div class="meta" style="right:84px;top:110px;text-align:right;color:var(--papel)">Foto: A. Eidesvik<br>CC BY 4.0</div>
   </div>
-  <div class="kin" style="top:720px" data-lines='[["in","El 12 de",3.18,3.62],["key","noviembre",3.62,4.06]]'></div>
+  <div class="kin" style="top:250px" data-lines='[["in","El 12 de",3.18,3.62],["key","noviembre",3.62,4.06]]'></div>
 </div>
 
-<!-- 2b · RENUNCIÓ (clímax) -->
+<!-- 2b · RENUNCIÓ (clímax: foto + palabra entera) -->
 <div class="scene trama" id="s3" style="background:var(--naranja);--t:.2">
   <div class="cam">
-    <div class="abs" id="ren" style="left:-40px;top:560px;font-family:Bricolage;font-weight:800;font-stretch:75%;font-size:380px;line-height:.8;letter-spacing:-.04em;color:var(--papel);-webkit-text-stroke:8px var(--tinta);white-space:nowrap">RENUN<br>CIÓ</div>
-    <div class="sello" id="sello1" style="right:150px;top:1250px;color:var(--verde);transform:rotate(-8deg)">CONFIRMADO</div>
+    <div class="ring spin" style="left:150px;top:500px;width:780px;height:780px"></div>
+    <img class="cut" id="ren-foto" src="assets/huang_frente.png" style="left:250px;top:470px;width:580px;transform:rotate(-3deg)">
+    <div class="abs fit" id="ren" data-max="300" style="left:110px;right:110px;top:1150px;text-align:center;font-family:Bricolage;font-weight:800;font-stretch:75%;line-height:1.08;padding-top:.12em;letter-spacing:-.02em;color:var(--papel);-webkit-text-stroke:7px var(--tinta);paint-order:stroke fill;white-space:nowrap">RENUNCIÓ</div>
+    <div class="sello" id="sello1" style="right:130px;top:560px;color:var(--verde);transform:rotate(-8deg)">CONFIRMADO</div>
   </div>
-  <div class="fuente">FUENTE · Nvidia — 12/11/2026</div>
+  <div class="fuente" style="top:1560px">FUENTE · Nvidia — 12/11/2026</div>
 </div>
 
 <!-- 3 · −11 % -->
@@ -85,6 +91,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--tinta)}
       <circle id="chartdot" cx="830" cy="440" r="22" fill="var(--rojo)" stroke="var(--papel)" stroke-width="6"/>
     </svg>
     <div class="meta" style="left:84px;top:1440px;color:var(--papel);opacity:.7">Acción NVDA · 5 ruedas</div>
+    <div class="abs ticker" data-speed="-260" style="left:0;top:96px;white-space:nowrap;font-family:Plex;font-weight:600;font-size:30px;color:var(--rojo);letter-spacing:.08em">NVDA ▼ −11% · NVDA ▼ −11% · NVDA ▼ −11% · NVDA ▼ −11% · NVDA ▼ −11% · NVDA ▼ −11% · NVDA ▼ −11% · NVDA ▼ −11%</div>
+    <img class="cut pz drift" data-at="0.1" data-drift="60" src="assets/gpu.png" style="left:640px;top:1180px;width:330px;transform:rotate(8deg);opacity:.9">
   </div>
   <div class="kin" style="top:300px" data-lines='[["in","En cinco días, la acción cayó",5.11,6.75],["num","−11%",6.75,7.60]]'></div>
   <div class="fuente" style="background:var(--papel);color:var(--tinta)">FUENTE · TechCrunch — 13/11/2026</div>
@@ -93,7 +101,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--tinta)}
 <!-- 4 · NYT · SIN CONFIRMAR -->
 <div class="scene" id="s5" style="background:var(--papel2) repeating-linear-gradient(-45deg,transparent 0 22px,rgba(23,20,15,.12) 22px 27px)">
   <div class="cam">
-    <img class="cut pz" data-at="0.05" src="assets/diario.png" style="left:170px;top:700px;width:740px;transform:rotate(3deg);filter:saturate(.3)">
+    <img class="cut pz drift" data-at="0.05" data-drift="-50" src="assets/diario.png" style="left:170px;top:700px;width:740px;transform:rotate(3deg);filter:saturate(.3)">
     <div class="sello pz" data-at="2.3" style="left:250px;top:1180px;color:var(--naranja);transform:rotate(-9deg);font-size:50px">SIN CONFIRMAR</div>
     <div class="meta pz" data-at="0.15" style="left:84px;top:110px">Contexto</div>
     <div class="meta pz" data-at="0.15" style="right:84px;top:110px;text-align:right">Acusación<br>no probada</div>
@@ -106,11 +114,12 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--tinta)}
 <div class="scene trama" id="s6" style="background:var(--verde);color:var(--papel);--t:.18">
   <div class="cam">
     <div class="giant" data-slide="-140" style="left:-30px;top:1330px;color:var(--papel);opacity:.13">NOTA</div>
-    <div class="abs pz" data-at="0.1" style="left:120px;top:880px;width:840px;background:var(--papel);color:var(--tinta);border:6px solid var(--tinta);padding:46px 50px;transform:rotate(-2deg);box-shadow:18px 18px 0 var(--tinta)">
+    <img class="cut pz drift" data-at="0.05" data-drift="-40" src="assets/huang_perfil.png" style="left:330px;top:560px;width:560px;transform:rotate(4deg)">
+    <div class="abs pz" data-at="0.25" style="left:100px;top:1060px;width:840px;background:var(--papel);color:var(--tinta);border:6px solid var(--tinta);padding:46px 50px;transform:rotate(-2deg);box-shadow:18px 18px 0 var(--tinta)">
       <div style="font-family:Instrument;font-weight:600;font-size:58px;line-height:1.15">“Le fui infiel a mi esposa. No hay excusa para lo que hice.”</div>
-      <div style="font-family:Plex;font-size:24px;margin-top:22px;letter-spacing:.05em;text-transform:uppercase">Jensen Huang · nota a empleados<br>08/11/2026 · traducción</div>
+      <div style="font-family:Plex;font-size:24px;margin-top:22px;letter-spacing:.05em;text-transform:uppercase">Jensen Huang · nota a empleados<br>08/11/2026 · traducción · foto: A. Eidesvik, CC BY 4.0</div>
     </div>
-    <div class="sello pz" data-at="0.7" style="right:150px;top:800px;color:var(--tinta);background:var(--papel);transform:rotate(7deg)">DIJO</div>
+    <div class="sello pz" data-at="0.7" style="left:110px;top:900px;color:var(--tinta);background:var(--papel);transform:rotate(-7deg)">DIJO</div>
   </div>
   <div class="kin" data-lines='[["in","Huang admitió que le fue",12.39,13.40],["key","infiel a su esposa",13.40,14.38],["tail","sin decir con quién",14.54,15.50]]'></div>
 </div>
@@ -138,11 +147,13 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--tinta)}
 <div class="scene" id="s8" style="background:var(--papel)">
   <div class="cam">
     <div class="giant" data-slide="-160" style="left:-30px;top:1380px">JUSTICIA</div>
-    <div class="abs pz" data-at="0.2" style="left:150px;top:1010px;width:780px;background:#FBF5E8;border:5px solid var(--tinta);padding:38px 44px;transform:rotate(1.5deg);box-shadow:14px 14px 0 var(--tinta)">
+    <div class="circ trama pz" data-at="0" style="left:300px;top:640px;width:640px;height:640px;--t:.25"></div>
+    <img class="cut pz drift" data-at="0.08" data-drift="40" src="assets/martillo.png" style="left:330px;top:600px;width:600px;transform:rotate(-5deg)">
+    <div class="abs pz" data-at="0.3" style="left:110px;top:1120px;width:780px;background:#FBF5E8;border:5px solid var(--tinta);padding:38px 44px;transform:rotate(1.5deg);box-shadow:14px 14px 0 var(--tinta)">
       <div style="font-family:Instrument;font-weight:600;font-size:52px;line-height:1.15">“No sé si eso sea cierto.”</div>
       <div style="font-family:Plex;font-size:23px;margin-top:18px;letter-spacing:.05em;text-transform:uppercase">Todd Blanche · fiscal general de EE.UU.<br>sobre la acusación de espionaje · traducción</div>
     </div>
-    <div class="sello pz" data-at="2.1" style="right:130px;top:1350px;color:var(--verde);transform:rotate(-7deg)">CONFIRMADO</div>
+    <div class="sello pz" data-at="2.1" style="right:110px;top:1000px;color:var(--verde);transform:rotate(-7deg)">CONFIRMADO</div>
   </div>
   <div class="kin" data-lines='[["in","Pero el Departamento de Justicia dice que",18.95,20.90],["key","el espionaje no está probado",20.90,22.27]]' data-hl="key"></div>
   <div class="fuente">FUENTE · Fiscal general T. Blanche — 12/11/2026</div>
@@ -162,10 +173,11 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--tinta)}
   <div class="fuente">FUENTE · Rep. Brian Mast — 12/11/2026</div>
 </div>
 
-<!-- 9 · cierre -->
+<!-- 9 · cierre (campo de glifos animado) -->
 <div class="scene" id="s10" style="background:var(--tinta)">
-  <div class="abs" id="logo" style="left:0;right:0;top:760px;text-align:center;font-family:Bricolage;font-weight:800;font-stretch:75%;font-size:230px;line-height:.85;color:var(--papel)">TRAMA</div>
-  <div class="abs" style="left:0;right:0;top:1000px;text-align:center;font-family:Plex;font-size:28px;letter-spacing:.12em;color:var(--papel);opacity:.75">FUENTES EN LA DESCRIPCIÓN</div>
+  <canvas id="glifos" width="1080" height="1920" class="abs" style="left:0;top:0"></canvas>
+  <div class="abs" id="logo" style="left:0;right:0;top:780px;text-align:center;font-family:Bricolage;font-weight:800;font-stretch:75%;font-size:230px;line-height:1;color:var(--papel)">TRAMA</div>
+  <div class="abs" style="left:0;right:0;top:1030px;text-align:center;font-family:Plex;font-size:28px;letter-spacing:.12em;color:var(--papel);opacity:.8">FUENTES EN LA DESCRIPCIÓN</div>
 </div>
 
 <div class="plate" id="pl1" style="background:var(--naranja)"></div>
@@ -243,6 +255,25 @@ function render(t){
     pl.style.transform=`translate(${dx}px,${dy}px)`; pl.style.opacity=(0.85*(1-st)).toFixed(2); });
   document.getElementById('grain').style.backgroundImage=`url(${grains[Math.floor(t*15)%4]})`;
 }
+
+// autoajuste: el texto clave nunca se corta
+document.querySelectorAll('.fit').forEach(el=>{let f=+el.dataset.max||300;const sc=el.closest('.scene');const d=sc.style.display;sc.style.display='block';el.style.fontSize=f+'px';
+  while(el.scrollWidth>el.clientWidth&&f>40){f-=4;el.style.fontSize=f+'px'} sc.style.display=d;});
+const _render=render;
+render=function(t){
+  _render(t);
+  for(const [id,s0,e0] of SCENES){ if(t<s0||t>=e0) continue; const el=document.getElementById(id), lt=t-s0, p=lt/(e0-s0);
+    el.querySelectorAll('.spin').forEach(r=>{r.style.transform=(r.style.transform.replace(/ ?rotate\([^)]*\)/g,''))+` rotate(${lt*12}deg)`});
+    el.querySelectorAll('.drift').forEach(d=>{if(d.style.visibility==='hidden')return;d.style.transform=d.style.transform.replace(/ ?translateY\([^)]*\)/g,'')+` translateY(${(+d.dataset.drift)*p}px)`});
+    el.querySelectorAll('.ticker').forEach(k=>{k.style.transform=`translateX(${(+k.dataset.speed)*lt}px)`});
+    if(id==='s2'){const days=['08/11','09/11','10/11','11/11','12/11'];const i=Math.min(4,Math.floor(lt/0.17));document.getElementById('cal').innerHTML=days.map((d,k)=>`<span style="opacity:${k===i?1:.3};${k===i?'color:var(--naranja)':''}">${d}</span>`).join('  ·  ')}
+    if(id==='s3'){const f=document.getElementById('ren-foto');const k=Math.floor(lt*15);const j=k<4?(4-k)*6:0;f.style.transform=`rotate(${-3+(k<4?(hash(k)-.5)*4:0)}deg) translate(${(hash(k+9)-.5)*j}px,${(hash(k+3)-.5)*j}px) scale(${1.04-0.04*Math.min(lt/0.3,1)})`}
+    if(id==='s10'){const c=document.getElementById('glifos'),x=c.getContext('2d');x.clearRect(0,0,1080,1920);const tq=Math.floor(lt*15)/15;const cell=36;x.lineWidth=2;
+      for(let gy=0;gy<1920/cell;gy++)for(let gx=0;gx<1080/cell;gx++){const cx=gx*cell+cell/2,cy=gy*cell+cell/2;const dx=cx-540,dy=cy-900;const r=Math.sqrt(dx*dx+dy*dy);
+        const v=0.5+0.5*Math.sin(r/70-tq*4)*Math.exp(-r/900);const R=cell*0.4;if(v<0.45)continue;x.strokeStyle='rgba(242,230,207,.55)';x.fillStyle='rgba(238,106,31,.85)';
+        if(v<0.6){x.beginPath();x.arc(cx,cy,R*.35,0,7);x.stroke()}else if(v<0.75){x.beginPath();x.arc(cx,cy,R*.8,0,7);x.stroke()}else{x.beginPath();x.arc(cx,cy,R,0,7);x.fill();x.fillStyle='#17140F';x.font='600 15px Plex';x.textAlign='center';x.textBaseline='middle';x.fillText('$',cx,cy+1)}}}
+  }
+};
 window.render=render; window.DUR=DUR; window.FPS=FPS;
 render(0);
 </script>

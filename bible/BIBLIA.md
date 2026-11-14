@@ -8,6 +8,17 @@ La gramática viene del video explicativo editorial (documentos, datos, mapas, c
 
 ---
 
+## 0. Reglas duras (se cumplen en todos los planos, siempre)
+
+Estas reglas están por encima de cualquier otra sección. Un plano que rompe una de ellas no sale.
+
+1. **El texto nunca se corta.** Ninguna palabra puede quedar cortada por el borde del cuadro, tapada o con letras pisadas (por ejemplo, el acento de "Ó" montado sobre la línea de arriba). Todo texto queda dentro del margen de seguridad (84 px a los lados en 1080, 40 px como mínimo absoluto), **incluso con el empuje de cámara aplicado**. Los títulos grandes se autoajustan al ancho disponible. La única excepción son las **palabras gigantes de fondo** (decorativas, al 10–15 %), que pueden salir del cuadro.
+2. **Nunca un plano estático.** No existe un plano que sea "una palabra sobre un color". Cada plano tiene **una imagen** (foto tratada, ilustración o gráfico de datos) que ocupa al menos el 12 % del cuadro y **motion graphics**: mínimo dos capas que se mueven a distinta velocidad (empuje, deriva de la imagen, anillos que giran, cinta que corre, parallax, glifos). El texto acompaña a la imagen, nunca la reemplaza.
+3. **Si la noticia es sobre una persona, su foto aparece.** Foto real de archivo en **blanco y negro** (duotono tinta + papel, con trama), con licencia que permita el uso (por ejemplo Wikimedia Commons con CC BY / CC BY-SA, o agencia con licencia) y **crédito visible en pantalla**. Nunca ilustrada, generada ni alterada en su expresión.
+4. **Control automático antes de renderizar.** `node tools/qa_video.js <video>/index.html` revisa cada escena: texto fuera de margen o cortado, escena sin imagen y escena sin movimiento. Si falla, no se renderiza.
+
+---
+
 ## 1. Alma
 
 **Tres palabras:** Claro · Impreso · Con criterio.
@@ -82,6 +93,7 @@ La política y la tecnología tratan de **quién controla qué**, así que la ma
 - Se expresan con postura, tamaño y con lo que hacen con las manos, no con caras.
 
 ### 4.3 Personas reales (regla dura)
+- Si la historia es sobre una persona, **su foto aparece** (regla dura 3): archivo real en blanco y negro con trama y crédito. Fuente preferida: Wikimedia Commons (CC BY / CC BY-SA, con autor y licencia en pantalla).
 - **Nunca se ilustran ni se generan con IA** políticos, empresarios ni ninguna persona real.
 - Se usan **fotos de archivo reales** con tratamiento de impresión: duotono (tinta + 1 color), trama de puntos, recorte con borde de papel y **crédito visible**.
 - Sin deformar, caricaturizar ni poner expresiones que no tuvieron.
@@ -256,7 +268,7 @@ Tomado de la referencia 4. Es el sistema de subtítulos "de diseño" del canal y
 - Va en tinta al 10–15 % o en el color del bloque, con un desplazamiento lateral lento (parallax tipográfico).
 
 **Clímax tipográfico**
-- Una vez por video, la frase central ocupa **todo el cuadro**: texto a sangre, cortado por los bordes, sin imagen.
+- Una vez por video, la palabra central se agranda al máximo **que entre completa** en el ancho seguro (autoajuste), **sobre la imagen** del protagonista, con corte en golpe y sello. Nunca se corta por los bordes ni aparece sin imagen (regla dura 1 y 2).
 
 ---
 

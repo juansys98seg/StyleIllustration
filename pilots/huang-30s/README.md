@@ -8,6 +8,7 @@
 
 Armar el video:
 ```
+node ../../tools/qa_video.js index.html   # tiene que dar "Todo en regla"
 node render.js full
 python3 sfx.py
 ffmpeg -i audio/voz.mp3 -i audio/sfx.wav -filter_complex "[0]aresample=48000,apad=whole_dur=28[v];[1]volume=0.32[s];[v][s]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-15:TP=-1.5[a]" -map "[a]" audio/mezcla.wav
