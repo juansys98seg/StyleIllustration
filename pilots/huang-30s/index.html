@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Piloto 01 — Huang</title>
+<style>
+@font-face{font-family:"Bricolage";src:url(assets/fonts/bricolage.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%}
+@font-face{font-family:"Instrument";src:url(assets/fonts/instrument-sans-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"Instrument";src:url(assets/fonts/instrument-sans-latin-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:"Plex";src:url(assets/fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Plex";src:url(assets/fonts/ibm-plex-mono-latin-600-normal.woff2) format("woff2");font-weight:600}
+:root{--tinta:#17140F;--papel:#F2E6CF;--papel2:#E8D9BC;--naranja:#EE6A1F;--verde:#1F6E55;--mostaza:#F3A72B;--rosa:#E79A8C;--acero:#B8B5AE;--rojo:#CF3F2A;--azul:#2E5A9E}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--tinta)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--papel);font-family:"Instrument",sans-serif;color:var(--tinta)}
+.scene{position:absolute;inset:0;display:none;overflow:hidden}
+.cam{position:absolute;inset:0;transform-origin:50% 55%}
+.abs{position:absolute}
+.trama::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:var(--t,.22);
+  background-image:radial-gradient(var(--tinta) 1.6px,transparent 2.3px),radial-gradient(var(--tinta) 1.6px,transparent 2.3px);background-size:11px 11px;background-position:0 0,5.5px 5.5px;border-radius:inherit}
+.giant{position:absolute;white-space:nowrap;font-family:"Bricolage";font-weight:800;font-stretch:75%;font-size:520px;line-height:.8;letter-spacing:-.03em;opacity:.12}
+.kin{position:absolute;left:84px;right:150px;top:250px}
+.ln{display:block}
+.ln.in{font-family:"Instrument";font-weight:600;font-size:56px;line-height:1.12;margin-bottom:6px}
+.ln.key{font-family:"Bricolage";font-weight:800;font-stretch:76%;font-size:150px;line-height:.88;letter-spacing:-.03em}
+.ln.num{font-family:"Bricolage";font-weight:800;font-stretch:75%;font-size:380px;line-height:.85;letter-spacing:-.04em;color:var(--papel);-webkit-text-stroke:6px var(--rojo)}
+.ln.tail{font-family:"Instrument";font-weight:600;font-size:52px;margin-top:14px}
+.w{display:inline-block;margin-right:.22em}
+.ln.key .w{margin-right:.16em}
+.meta{position:absolute;font-family:"Plex";font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;line-height:1.35}
+.fuente{position:absolute;left:84px;top:1520px;font-family:"Plex";font-weight:600;font-size:25px;letter-spacing:.05em;background:var(--tinta);color:var(--papel);padding:8px 16px}
+.sello{position:absolute;font-family:"Plex";font-weight:600;font-size:40px;letter-spacing:.12em;border:7px solid currentColor;padding:10px 24px;border-radius:6px;background:rgba(242,230,207,.55)}
+.circ{position:absolute;border-radius:50%;background:var(--naranja)}
+.ring{position:absolute;border-radius:50%;border:4px dotted var(--tinta);opacity:.55}
+.cut{position:absolute;filter:drop-shadow(0 0 0 transparent)}
+.bar{position:absolute;height:44px;background:repeating-linear-gradient(90deg,currentColor 0 4px,transparent 4px 8px,currentColor 8px 10px,transparent 10px 15px,currentColor 15px 21px,transparent 21px 24px)}
+#grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.13;z-index:50;background-size:540px 540px}
+.plate{position:absolute;inset:-60px;z-index:40;mix-blend-mode:multiply;display:none}
+.hl{background-image:linear-gradient(var(--mostaza),var(--mostaza));background-repeat:no-repeat;background-position:0 78%}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 · NVIDIA 33 años -->
+<div class="scene" id="s1" style="background:var(--papel)">
+  <div class="cam">
+    <div class="giant" data-slide="-160" style="left:-20px;top:1290px">NVIDIA</div>
+    <div class="ring pz" data-at="0.05" style="left:110px;top:640px;width:860px;height:860px"></div>
+    <div class="circ trama pz" data-at="0" style="left:170px;top:700px;width:740px;height:740px;--t:.25"></div>
+    <img class="cut pz" data-at="0.14" src="assets/gpu.png" style="left:205px;top:610px;width:670px;transform:rotate(-4deg)">
+    <div class="meta pz" data-at="0.2" style="left:84px;top:110px">Nvidia Corp.<br>Fundada · abril 1993</div>
+    <div class="meta pz" data-at="0.2" style="right:84px;top:110px;text-align:right">Santa Clara, CA<br>33 años</div>
+    <div class="bar pz" data-at="0.27" style="left:84px;top:1620px;width:300px;color:var(--tinta)"></div>
+  </div>
+  <div class="kin" data-lines='[["in","Jensen Huang fundó",0.20,1.45],["key","Nvidia hace 33 años",1.45,2.88]]'></div>
+</div>
+
+<!-- 2a · El 12 de noviembre -->
+<div class="scene" id="s2" style="background:var(--tinta);color:var(--papel)">
+  <div class="cam">
+    <div class="giant" data-slide="-120" style="left:-10px;top:1250px;color:var(--papel);opacity:.14">12·11</div>
+    <div class="meta" style="left:84px;top:110px;color:var(--papel)">Nvidia · comunicado</div>
+    <div class="meta" style="right:84px;top:110px;text-align:right;color:var(--papel)">12 · 11 · 2026</div>
+  </div>
+  <div class="kin" style="top:720px" data-lines='[["in","El 12 de",3.18,3.62],["key","noviembre",3.62,4.06]]'></div>
+</div>
+
+<!-- 2b · RENUNCIÓ (clímax) -->
+<div class="scene trama" id="s3" style="background:var(--naranja);--t:.2">
+  <div class="cam">
+    <div class="abs" id="ren" style="left:-40px;top:560px;font-family:Bricolage;font-weight:800;font-stretch:75%;font-size:380px;line-height:.8;letter-spacing:-.04em;color:var(--papel);-webkit-text-stroke:8px var(--tinta);white-space:nowrap">RENUN<br>CIÓ</div>
+    <div class="sello" id="sello1" style="right:150px;top:1250px;color:var(--verde);transform:rotate(-8deg)">CONFIRMADO</div>
+  </div>
+  <div class="fuente">FUENTE · Nvidia — 12/11/2026</div>
+</div>
+
+<!-- 3 · −11 % -->
+<div class="scene" id="s4" style="background:var(--tinta);color:var(--papel)">
+  <div class="cam">
+    <svg class="abs" style="left:84px;top:900px" width="830" height="520" viewBox="0 0 830 520">
+      <g stroke="rgba(242,230,207,.18)" stroke-width="2"><line x1="0" y1="100" x2="830" y2="100"/><line x1="0" y1="250" x2="830" y2="250"/><line x1="0" y1="400" x2="830" y2="400"/></g>
+      <polyline id="chart" points="0,110 120,95 230,130 340,160 420,150 520,250 620,300 720,380 830,440" fill="none" stroke="var(--tinta)" stroke-width="30" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline id="chart2" points="0,110 120,95 230,130 340,160 420,150 520,250 620,300 720,380 830,440" fill="none" stroke="var(--rojo)" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle id="chartdot" cx="830" cy="440" r="22" fill="var(--rojo)" stroke="var(--papel)" stroke-width="6"/>
+    </svg>
+    <div class="meta" style="left:84px;top:1440px;color:var(--papel);opacity:.7">Acción NVDA · 5 ruedas</div>
+  </div>
+  <div class="kin" style="top:300px" data-lines='[["in","En cinco días, la acción cayó",5.11,6.75],["num","−11%",6.75,7.60]]'></div>
+  <div class="fuente" style="background:var(--papel);color:var(--tinta)">FUENTE · TechCrunch — 13/11/2026</div>
+</div>
+
+<!-- 4 · NYT · SIN CONFIRMAR -->
+<div class="scene" id="s5" style="background:var(--papel2) repeating-linear-gradient(-45deg,transparent 0 22px,rgba(23,20,15,.12) 22px 27px)">
+  <div class="cam">
+    <img class="cut pz" data-at="0.05" src="assets/diario.png" style="left:170px;top:700px;width:740px;transform:rotate(3deg);filter:saturate(.3)">
+    <div class="sello pz" data-at="2.3" style="left:250px;top:1180px;color:var(--naranja);transform:rotate(-9deg);font-size:50px">SIN CONFIRMAR</div>
+    <div class="meta pz" data-at="0.15" style="left:84px;top:110px">Contexto</div>
+    <div class="meta pz" data-at="0.15" style="right:84px;top:110px;text-align:right">Acusación<br>no probada</div>
+  </div>
+  <div class="kin" data-lines='[["in","Según el New York Times, una ejecutiva cercana a Huang",7.95,10.74],["key","sería espía de China",10.875,11.98]]'></div>
+  <div class="fuente">FUENTE · The New York Times — 29/10/2026</div>
+</div>
+
+<!-- 5 · DIJO -->
+<div class="scene trama" id="s6" style="background:var(--verde);color:var(--papel);--t:.18">
+  <div class="cam">
+    <div class="giant" data-slide="-140" style="left:-30px;top:1330px;color:var(--papel);opacity:.13">NOTA</div>
+    <div class="abs pz" data-at="0.1" style="left:120px;top:880px;width:840px;background:var(--papel);color:var(--tinta);border:6px solid var(--tinta);padding:46px 50px;transform:rotate(-2deg);box-shadow:18px 18px 0 var(--tinta)">
+      <div style="font-family:Instrument;font-weight:600;font-size:58px;line-height:1.15">“Le fui infiel a mi esposa. No hay excusa para lo que hice.”</div>
+      <div style="font-family:Plex;font-size:24px;margin-top:22px;letter-spacing:.05em;text-transform:uppercase">Jensen Huang · nota a empleados<br>08/11/2026 · traducción</div>
+    </div>
+    <div class="sello pz" data-at="0.7" style="right:150px;top:800px;color:var(--tinta);background:var(--papel);transform:rotate(7deg)">DIJO</div>
+  </div>
+  <div class="kin" data-lines='[["in","Huang admitió que le fue",12.39,13.40],["key","infiel a su esposa",13.40,14.38],["tail","sin decir con quién",14.54,15.50]]'></div>
+</div>
+
+<!-- 6 · CHIPS · las manos -->
+<div class="scene trama" id="s7" style="background:var(--mostaza);--t:.18">
+  <div class="cam">
+    <div class="giant" data-slide="-140" style="left:-20px;top:1380px">CHIPS</div>
+    <div class="circ trama pz" data-at="0" style="left:200px;top:820px;width:680px;height:680px;--t:.25"></div>
+    <img class="cut pz" data-at="0.1" src="assets/chip.png" style="left:300px;top:860px;width:480px;transform:rotate(3deg)">
+    <svg class="abs boil pz" data-at="0.2" style="left:0;top:470px" width="1080" height="560" viewBox="0 0 1080 560">
+      <g stroke="#17140F" stroke-width="9" stroke-linejoin="round" stroke-linecap="round">
+        <g transform="rotate(-24 200 0)"><path d="M150 -200 L150 260 Q150 330 210 336 Q270 330 272 262 L272 -200 Z" fill="#2E5A9E"/><path d="M158 318 Q128 380 146 424 Q168 470 214 470 Q262 466 276 422 Q288 380 264 318 Z" fill="#E79A8C"/><path d="M0 0" fill="none"/></g>
+        <g><path d="M480 -200 L480 300 Q480 360 540 364 Q600 360 602 300 L602 -200 Z" fill="#EE6A1F"/><path d="M488 350 Q458 410 476 452 Q498 498 544 498 Q592 494 606 450 Q618 410 594 350 Z" fill="#E79A8C"/><path d="M0 0" fill="none"/></g>
+        <g transform="rotate(24 880 0)"><path d="M810 -200 L810 260 Q810 330 870 336 Q930 330 932 262 L932 -200 Z" fill="#1F6E55"/><path d="M818 318 Q788 380 806 424 Q828 470 874 470 Q922 466 936 422 Q948 380 924 318 Z" fill="#E79A8C"/><path d="M0 0" fill="none"/></g>
+      </g>
+    </svg>
+    <div class="meta pz" data-at="0.15" style="left:84px;top:110px">Por qué importa</div>
+    <div class="meta pz" data-at="0.15" style="right:84px;top:110px;text-align:right">GPU · IA<br>Centros de datos</div>
+  </div>
+  <div class="kin" style="top:240px" data-lines='[["in","Nvidia fabrica los chips de la",16.02,17.30],["key","inteligencia artificial",17.30,18.58]]'></div>
+</div>
+
+<!-- 7 · Justicia: no está probado -->
+<div class="scene" id="s8" style="background:var(--papel)">
+  <div class="cam">
+    <div class="giant" data-slide="-160" style="left:-30px;top:1380px">JUSTICIA</div>
+    <div class="abs pz" data-at="0.2" style="left:150px;top:1010px;width:780px;background:#FBF5E8;border:5px solid var(--tinta);padding:38px 44px;transform:rotate(1.5deg);box-shadow:14px 14px 0 var(--tinta)">
+      <div style="font-family:Instrument;font-weight:600;font-size:52px;line-height:1.15">“No sé si eso sea cierto.”</div>
+      <div style="font-family:Plex;font-size:23px;margin-top:18px;letter-spacing:.05em;text-transform:uppercase">Todd Blanche · fiscal general de EE.UU.<br>sobre la acusación de espionaje · traducción</div>
+    </div>
+    <div class="sello pz" data-at="2.1" style="right:130px;top:1350px;color:var(--verde);transform:rotate(-7deg)">CONFIRMADO</div>
+  </div>
+  <div class="kin" data-lines='[["in","Pero el Departamento de Justicia dice que",18.95,20.90],["key","el espionaje no está probado",20.90,22.27]]' data-hl="key"></div>
+  <div class="fuente">FUENTE · Fiscal general T. Blanche — 12/11/2026</div>
+</div>
+
+<!-- 8 · Congreso -->
+<div class="scene" id="s9" style="background:var(--papel)">
+  <div class="cam" id="cam9">
+    <div class="giant" data-slide="-200" style="left:-20px;top:1390px">CONGRESO</div>
+    <div class="ring pz" data-at="0.05" style="left:130px;top:700px;width:820px;height:820px"></div>
+    <div class="circ trama pz" data-at="0" style="left:190px;top:760px;width:700px;height:700px;--t:.25"></div>
+    <img class="cut pz" data-at="0.12" src="assets/capitolio.png" style="left:250px;top:700px;width:580px;transform:rotate(-2deg)">
+    <div class="meta pz" data-at="0.2" style="left:84px;top:110px">Qué viene</div>
+    <div class="meta pz" data-at="0.2" style="right:84px;top:110px;text-align:right">Cámara de Representantes<br>Antes de Acción de Gracias</div>
+  </div>
+  <div class="kin" data-lines='[["in","Ahora, Huang tendrá que",22.60,23.80],["key","declarar ante el Congreso",23.80,24.96]]'></div>
+  <div class="fuente">FUENTE · Rep. Brian Mast — 12/11/2026</div>
+</div>
+
+<!-- 9 · cierre -->
+<div class="scene" id="s10" style="background:var(--tinta)">
+  <div class="abs" id="logo" style="left:0;right:0;top:760px;text-align:center;font-family:Bricolage;font-weight:800;font-stretch:75%;font-size:230px;line-height:.85;color:var(--papel)">TRAMA</div>
+  <div class="abs" style="left:0;right:0;top:1000px;text-align:center;font-family:Plex;font-size:28px;letter-spacing:.12em;color:var(--papel);opacity:.75">FUENTES EN LA DESCRIPCIÓN</div>
+</div>
+
+<div class="plate" id="pl1" style="background:var(--naranja)"></div>
+<div class="plate" id="pl2" style="background:var(--verde)"></div>
+<div class="plate" id="pl3" style="background:var(--mostaza)"></div>
+<div id="grain"></div>
+</div>
+
+<script>
+const FPS=30, DUR=28.0;
+const SCENES=[['s1',0,3.10],['s2',3.10,4.15],['s3',4.15,5.00],['s4',5.00,7.85],['s5',7.85,12.25],['s6',12.25,15.85],['s7',15.85,18.80],['s8',18.80,22.45],['s9',22.45,25.40],['s10',25.40,28.0]];
+const PLATES=[7.85,15.85,22.45]; // desregistro en cambios de bloque
+const q15=t=>Math.floor(t*15)/15;
+const hash=n=>{let x=Math.sin(n*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const sello=t=>{ if(t<0) return null; const k=Math.min(t/0.28,1); const c1=1.70158,c3=c1+1; const e=1+c3*Math.pow(k-1,3)+c1*Math.pow(k-1,2); return e; };
+
+// grano: 4 texturas que se alternan a 15 fps
+const grains=[...Array(4)].map((_,i)=>{const c=document.createElement('canvas');c.width=c.height=270;const x=c.getContext('2d');const d=x.createImageData(270,270);
+  for(let p=0;p<d.data.length;p+=4){const v=hash(p+i*99991)*255;d.data[p]=d.data[p+1]=d.data[p+2]=v;d.data[p+3]=255}x.putImageData(d,0,0);return c.toDataURL()});
+
+// tipografía cinética
+document.querySelectorAll('.kin').forEach(k=>{
+  const lines=JSON.parse(k.dataset.lines); k._words=[];
+  lines.forEach(([cls,text,s,e])=>{
+    const ln=document.createElement('span'); ln.className='ln '+cls; k.appendChild(ln);
+    const ws=text.split(' '); const tot=ws.reduce((a,w)=>a+w.length+1,0); let acc=0;
+    ws.forEach(w=>{const sp=document.createElement('span');sp.className='w';sp.textContent=w;ln.appendChild(sp);
+      const ws0=s+(e-s)*acc/tot; acc+=w.length+1; k._words.push({el:sp,t:ws0-0.04,cls});});
+    if(k.dataset.hl===cls){ln.classList.add('hl');ln._hl=[s,e];k._hl=ln;}
+  });
+});
+
+function render(t){
+  for(const [id,s,e] of SCENES){
+    const el=document.getElementById(id), on=t>=s&&t<e; el.style.display=on?'block':'none'; if(!on) continue;
+    const lt=t-s, p=lt/(e-s);
+    const cam=el.querySelector('.cam'); if(cam) cam.style.transform=`scale(${1+0.06*p})`;
+    el.querySelectorAll('.giant').forEach(g=>{g.style.transform=`translateX(${(+g.dataset.slide||-120)*p}px)`});
+    // armado en stop-motion
+    el.querySelectorAll('.pz').forEach((pz,i)=>{
+      const at=+pz.dataset.at, qt=q15(lt);
+      if(!pz._base) pz._base=pz.style.transform||'';
+      if(qt<at){pz.style.visibility='hidden';return}
+      pz.style.visibility='visible';
+      const step=Math.round((qt-at)*15); let extra='';
+      if(pz.classList.contains('sello')){const k=sello(lt-at);extra=` scale(${2.2-1.2*k})`}
+      else if(step<4){const j=(4-step)/4;extra=` translate(${(hash(i*7+step)-.5)*14*j}px,${(hash(i*13+step)-.5)*14*j}px) rotate(${(hash(i+step*3)-.5)*3*j}deg)`}
+      else if(pz.classList.contains('boil')){const b=Math.floor(lt*12);extra=` translate(${(hash(b+i)-.5)*3}px,${(hash(b*3+i)-.5)*3}px)`}
+      pz.style.transform=pz._base+extra;
+    });
+    // palabras
+    el.querySelectorAll('.kin').forEach(k=>{
+      k._words.forEach(({el:w,t:wt})=>{
+        if(t<wt){w.style.opacity=0;return}
+        const a=Math.min((t-wt)/0.14,1); w.style.opacity=(0.35+0.65*a).toFixed(3);
+        const b=Math.min((t-wt)/0.22,1); const ov=1+2.2*Math.pow(b-1,3)+1.2*Math.pow(b-1,2);
+        w.style.transform=`translateY(${(1-ov)*18}px)`;
+      });
+      if(k._hl){const [s2,e2]=k._hl._hl;const h=Math.max(0,Math.min((t-s2-0.3)/(e2-s2),1));k._hl.style.backgroundSize=`${h*100}% 42%`}
+    });
+    if(id==='s3'){const sl=document.getElementById('sello1');const k=sello(lt-0.3);sl.style.visibility=k===null?'hidden':'visible';if(k!==null)sl.style.transform=`rotate(-8deg) scale(${2.2-1.2*k})`;
+      document.getElementById('ren').style.transform=`scale(${1.12-0.12*Math.min(lt/0.18,1)})`}
+    if(id==='s4'){const L=1150,k=Math.min(Math.max((lt-0.2)/2.0,0),1),ease=1-Math.pow(1-k,3);
+      ['chart','chart2'].forEach(c=>{const pl=document.getElementById(c);pl.style.strokeDasharray=L;pl.style.strokeDashoffset=L*(1-ease)});
+      document.getElementById('chartdot').style.opacity=k>=1?1:0}
+    if(id==='s9'){const k=Math.min(lt/2.4,1),e2=k*k*(3-2*k);document.getElementById('cam9').style.transform=`perspective(1600px) rotateX(${e2*14}deg) scale(${1.0+0.08*e2})`}
+    if(id==='s10'){const k=Math.min(lt/0.5,1),st=Math.floor(k*4)/4;document.getElementById('logo').style.textShadow=`${-26*(1-st)-6}px ${14*(1-st)+5}px 0 var(--naranja), ${24*(1-st)+6}px ${-16*(1-st)-4}px 0 var(--verde)`}
+  }
+  // transición desregistro
+  const pls=['pl1','pl2','pl3'].map(i=>document.getElementById(i));
+  let act=null; for(const ps of PLATES){ if(t>=ps-0.02&&t<ps+0.4) act=t-ps; }
+  pls.forEach((pl,i)=>{ if(act===null){pl.style.display='none';return}
+    const st=Math.floor(Math.max(act,0)/0.4*4)/4; pl.style.display='block';
+    const dx=[-1,1,0.6][i]*160*(1-st)+[-1,1,0][i]*40, dy=[0.6,-0.7,1][i]*120*(1-st);
+    pl.style.transform=`translate(${dx}px,${dy}px)`; pl.style.opacity=(0.85*(1-st)).toFixed(2); });
+  document.getElementById('grain').style.backgroundImage=`url(${grains[Math.floor(t*15)%4]})`;
+}
+window.render=render; window.DUR=DUR; window.FPS=FPS;
+render(0);
+</script>
+</body>
+</html>
