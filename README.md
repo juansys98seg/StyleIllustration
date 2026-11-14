@@ -5,5 +5,7 @@ Estilo visual para explainers de política, tecnología y actualidad: ilustraci�
 - [`bible/BIBLIA.md`](bible/BIBLIA.md): la biblia de estilo (alma, paleta, personajes, cámara, movimiento, ética).
 - [`tokens/`](tokens): las decisiones de la biblia en JSON, para que el código y los prompts las lean.
 - [`prompts/higgsfield.md`](prompts/higgsfield.md): kit de prompts para generar imágenes y animaciones con el estilo.
+- [`tools/trama_treat.py`](tools/trama_treat.py): convierte fotos (por ejemplo de Pexels) en recortes con el tratamiento TRAMA.
+- [`examples/`](examples): pruebas del estilo.
 
 Próximo paso: componentes reutilizables (Remotion) y plantillas de escena.

@@ -330,6 +330,33 @@ La referencia 5 confirma la regla de "en dos": la escena se arma **pieza por pie
 
 ---
 
+## 19. Banco de imágenes: Pexels
+
+Pexels está conectado (por Composio) y se usa como fuente de **recortes de archivo** genéricos.
+
+**Para qué sí**
+- Edificios, ciudades, fábricas, objetos, máquinas y tecnología.
+- Texturas: papel viejo, papel arrugado, cartón kraft, diario, bordes rasgados.
+- Videos como **elementos vivos** (humo, nubes, multitudes en silueta, servidores), siempre tratados y llevados a 15 fps.
+
+**Para qué no**
+- Noticias, hechos concretos o personas reales de la historia: Pexels no tiene ese material. Eso sale de archivo con crédito.
+- Personas identificables de Pexels usadas como si fueran protagonistas de la noticia ("un votante", "un trabajador despedido"). La licencia prohíbe mostrarlas de forma engañosa u ofensiva. Para gente genérica se usan **los anónimos** ilustrados.
+- Fotos sin tratar: todo lo que viene de Pexels pasa por el tratamiento TRAMA antes de entrar a un plano.
+
+**Tratamiento automático**
+`tools/trama_treat.py` convierte cualquier foto en recorte TRAMA (duotono, trama a 45°, desregistro, grano, borde blanco y sombra dura) leyendo los colores de `tokens/colors.json`:
+
+```
+python3 tools/trama_treat.py foto.jpg recorte.png --color mostaza --fondo verde
+```
+
+Ejemplos con crédito en [`/examples/pexels-test`](../examples/pexels-test).
+
+**Crédito:** la licencia de Pexels no lo exige, pero el canal lo da igual en la descripción del video (fotógrafo + link), como parte de la regla de fuentes visibles.
+
+---
+
 ## Pendientes
 - [ ] Nombre del canal y logo.
 - [ ] País o región principal (para la lista negra de colores partidarios).
