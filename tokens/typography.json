@@ -1,0 +1,10 @@
+{
+  "display": { "family": "Bricolage Grotesque", "weight": 800, "width": "condensed", "use": "títulos, cifras, bloques" },
+  "texto":   { "family": "Instrument Sans", "weight": [400, 600], "use": "subtítulos, citas, etiquetas" },
+  "mono":    { "family": "IBM Plex Mono", "weight": [500, 600], "use": "fuentes, fechas, sellos" },
+  "reglas": {
+    "maxPalabrasPorPlaca": 7,
+    "fuenteFormato": "FUENTE · {medio} — {dd/mm/aaaa}",
+    "fuentePosicion": "inferior-izquierda"
+  }
+}

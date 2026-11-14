@@ -1,0 +1,20 @@
+{
+  "lente": "casi ortográfica (sin distorsión de perspectiva)",
+  "angulos": ["frontal", "cenital", "isometrico-3/4"],
+  "movimientos": {
+    "empuje":       { "scale": [1.0, 1.15], "durationSec": [3, 6], "easing": "respiro" },
+    "paneoDeMesa":  { "parallax": [0.3, 0.6, 1.0], "durationSec": [2, 4], "easing": "papel" },
+    "zoomPortal":   { "scale": [1, 12], "durationSec": [1, 1.5], "easing": "papel" },
+    "elevacion":    { "from": "frontal", "to": "cenital", "durationSec": [1.5, 2] },
+    "corteEnGolpe": { "maxCada": "20s", "sync": "golpe de sonido" }
+  },
+  "prohibido": ["camara-en-mano", "orbita-3d", "angulo-holandes", "zoom-sobre-raster", "movimiento-sin-motivo"],
+  "transiciones": {
+    "firma": { "nombre": "desregistro", "frames": [10, 14], "orden": ["naranja", "verde", "mostaza", "tinta"] },
+    "otras": ["zoom-portal", "hoja-que-se-da-vuelta", "corte-en-golpe"]
+  },
+  "formatos": {
+    "master": [1920, 1080],
+    "zonaSeguraVertical": { "width": 608, "centered": true }
+  }
+}
