@@ -1,14 +1,86 @@
 {
-  "fps": { "master": 30, "personajes": 12, "lineBoilCada": [2, 3] },
+  "fps": {
+    "master": 30,
+    "personajes": 12,
+    "lineBoilCada": [
+      2,
+      3
+    ]
+  },
   "easing": {
-    "sello":    { "cubicBezier": [0.34, 1.56, 0.64, 1], "overshoot": 0.08, "durationFrames": [8, 12] },
-    "papel":    { "cubicBezier": [0.16, 1, 0.3, 1], "durationFrames": [14, 24] },
-    "imprenta": { "steps": 4, "durationFrames": [10, 14] },
-    "respiro":  { "cubicBezier": [0.45, 0, 0.55, 1], "durationFrames": [90, 180] }
+    "sello": {
+      "cubicBezier": [
+        0.34,
+        1.56,
+        0.64,
+        1
+      ],
+      "overshoot": 0.08,
+      "durationFrames": [
+        8,
+        12
+      ]
+    },
+    "papel": {
+      "cubicBezier": [
+        0.16,
+        1,
+        0.3,
+        1
+      ],
+      "durationFrames": [
+        14,
+        24
+      ]
+    },
+    "imprenta": {
+      "steps": 4,
+      "durationFrames": [
+        10,
+        14
+      ]
+    },
+    "respiro": {
+      "cubicBezier": [
+        0.45,
+        0,
+        0.55,
+        1
+      ],
+      "durationFrames": [
+        90,
+        180
+      ]
+    }
   },
   "reglas": {
     "sincroniaConVoz": "cada elemento entra en la palabra que lo nombra",
-    "respiroTrasDatoSeg": [1, 2],
+    "respiroTrasDatoSeg": [
+      1,
+      2
+    ],
     "silencioPrevioDatoSeg": 0.5
+  },
+  "modoAfiche": {
+    "formato": "9:16",
+    "duracionPlanoSeg": {
+      "promedio": 1.5,
+      "rango": [
+        0.7,
+        3.0
+      ]
+    },
+    "corte": "al terminar la frase",
+    "empujeInterno": {
+      "scale": [
+        1.0,
+        1.06
+      ]
+    },
+    "alternancia": [
+      "papel",
+      "tinta"
+    ],
+    "cierreSeg": 2
   }
 }

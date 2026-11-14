@@ -26,6 +26,7 @@ La gramática viene del video explicativo editorial (documentos, datos, mapas, c
 1. Mano con llave inglesa y reloj dorado: halftone fuerte, contorno negro grueso, colores saturados planos (naranja, verde botella, mostaza) y piel rosada.
 2. Manos de colores girando perillas de una consola, vista cenital-isométrica: **manos como metáfora de poder y control**, rayado (hatching) para volumen y paleta primaria apagada sobre crema.
 3. Fantasma planchando: minimalismo, personaje sin rostro con dos puntos por ojos, fondos de color pleno, línea fina y grano de papel.
+4. **Video vertical de afiches con tipografía cinética** (15 s, referencia de **ritmo y montaje**, no de look): cada frase es un afiche de diseño suizo, con imagen central en blanco y negro, una sola forma roja detrás del sujeto, micro-tipografía decorativa y palabras que aparecen en sincronía con la voz. Corta cada ~1.5 s. Ver secciones 15 y 16.
 
 ---
 
@@ -231,6 +232,59 @@ Cada video sigue **cuatro bloques**, y cada bloque tiene su "modo" de color, cá
 4. Las fotos de archivo tienen licencia o uso legítimo y crédito visible.
 5. La sátira, si la hay, se marca explícitamente.
 6. Ningún color identifica a un partido.
+
+---
+
+## 15. Tipografía cinética
+
+Tomado de la referencia 4. Es el sistema de subtítulos "de diseño" del canal y se usa en todos los formatos.
+
+**Jerarquía de dos niveles**
+- **Línea de entrada:** las palabras de enlace ("no se trata de", "lo que importa es") van chicas, en Instrument Sans, arriba.
+- **Palabra clave:** el concepto va grande, en Bricolage ExtraBold condensada, con interletrado apretado (−3 %) y pegada a la línea de entrada.
+- Nunca más de **2 líneas** en pantalla.
+
+**Aparición**
+- Palabra por palabra, en la sílaba exacta en que la voz la dice.
+- Cada palabra entra en **gris al 40 %** y pasa a **tinta** (o papel, sobre fondo oscuro) cuando se pronuncia, como un karaoke editorial.
+- Entrada con la curva `sello`, con un desplazamiento vertical mínimo de 8 a 12 px.
+
+**Palabra gigante de fondo**
+- La palabra clave del bloque se repite enorme (de 3 a 4 veces el alto del cuadro de texto), cortada por los bordes, detrás del sujeto.
+- Va en tinta al 10–15 % o en el color del bloque, con un desplazamiento lateral lento (parallax tipográfico).
+
+**Clímax tipográfico**
+- Una vez por video, la frase central ocupa **todo el cuadro**: texto a sangre, cortado por los bordes, sin imagen.
+
+---
+
+## 16. Modo afiche (shorts verticales)
+
+Es el montaje para clips de 9:16 de 15 a 60 s. Viene de la referencia 4, adaptado a la piel TRAMA.
+
+**Cada frase es un afiche**
+- Un plano = una frase = un afiche completo y compuesto, que funcionaría como póster impreso.
+- Duración promedio de **1.5 s** (la referencia corta en 1.4 · 3.0 · 4.5 · 5.7 · 8.8 · 9.5 · 10.5 · 13.1 s). El corte cae siempre al terminar la frase.
+- Dentro de cada afiche hay un **empuje** continuo y lento (escala de 1.00 a 1.06), así ningún plano queda congelado.
+
+**Anatomía del afiche**
+1. **Sujeto central:** una ilustración TRAMA (mano, anónimo u objeto) o una foto de archivo en duotono.
+2. **Forma de acento:** un círculo o rectángulo **naranja** plano detrás del sujeto. Es la única forma de color fuerte del afiche.
+3. **Tipografía cinética** según la sección 15.
+4. **Micro-tipografía de documento:** detalles chicos en mono que hacen que el afiche parezca un objeto impreso real. Para noticias usamos metadatos verdaderos de la historia: número de expediente o de ley, fecha, folio, coordenadas, número de votos, código de barras. Nunca son decorativos inventados que puedan confundirse con datos reales.
+5. **Líneas finas:** círculos punteados, guías y marcas de corte en tinta, a 1–2 px.
+
+**Alternancia papel / tinta**
+- Los afiches alternan fondo claro (papel) y fondo oscuro (tinta) para marcar el ritmo.
+- El fondo tinta se reserva para los momentos de reflexión o de cambio de idea.
+
+**Cierre**
+- Logo o nombre del canal, chico y centrado sobre tinta, con 2 s de aire.
+
+**Lo que no tomamos de la referencia**
+- Personajes o escenas de películas y series: nada de propiedad intelectual ajena.
+- El rojo: nuestro acento es el naranja. El rojo queda para los actores y los datos negativos.
+- La foto en blanco y negro como look principal: la piel sigue siendo ilustración impresa, y la foto queda para personas reales en duotono.
 
 ---
 
