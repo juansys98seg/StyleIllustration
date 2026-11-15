@@ -5,6 +5,7 @@ El flujo de la referencia 5 es: **imagen fija → animación → ediciones por p
 
 > Reglas antes de generar (biblia, secciones 0 y 14):
 > - Ningún plano es solo texto: lo generado siempre es una imagen que después lleva motion graphics.
+> - Para mapas y procesos, primero buscar material real (mapa, foto, documento); lo generado nunca reemplaza a un mapa real.
 > - Nunca pedir personas reales (políticos, empresarios, figuras públicas) ni logos de marcas o medios.
 > - Lo generado es solo para elementos genéricos: lugares, edificios, objetos, manos, gente anónima.
 > - Las fotos de personas reales se colocan después, desde archivo, con crédito.

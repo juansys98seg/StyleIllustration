@@ -96,5 +96,31 @@
     "jitterRotDeg": 1,
     "elementosVivos": "a saltos, sin interpolación",
     "camara": "suave (contraste intencional)"
+  },
+  "anotaciones": {
+    "base": "material real en duotono (mapa, foto, pintura, documento)",
+    "trazo": {
+      "tipo": "pincel",
+      "grosor": "variable fino-grueso-fino",
+      "temblor": 0.18
+    },
+    "flecha": {
+      "forma": "curva que sigue el terreno",
+      "punta": "dos trazos dibujados al final"
+    },
+    "circulo": {
+      "vueltas": 1.18,
+      "irregular": true
+    },
+    "camara": {
+      "interpolacion": "easeInOut cúbico",
+      "sinPasos": true
+    },
+    "stopMotion": "solo recortes de collage al entrar a cuadro",
+    "prohibido": [
+      "formas geométricas en código sobre fondo liso",
+      "líneas rectas de grosor constante",
+      "flechas con triángulo rígido"
+    ]
   }
 }

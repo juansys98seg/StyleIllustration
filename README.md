@@ -20,6 +20,9 @@ Se cumplen en todos los planos de todos los videos (detalle en la sección 0 de 
 1. **El texto nunca se corta** ni sale del margen de seguridad, ni siquiera con el empuje de cámara. Los títulos grandes se autoajustan.
 2. **Nunca un plano estático**: cada plano tiene una imagen (foto tratada, ilustración o gráfico) y motion graphics con al menos dos capas en movimiento. Nada de "una palabra sobre un color".
 3. **Si la noticia es sobre una persona, aparece su foto** de archivo en blanco y negro, con licencia y crédito en pantalla.
-4. **Antes de renderizar**, correr `node tools/qa_video.js <video>/index.html`. Si falla, se corrige primero.
+4. **Material real abajo, dibujos a mano arriba**: mapas, fotos, pinturas o documentos reales con anotaciones de pincel animadas (`engine/anota.js`). Nunca esquemas de formas geométricas dibujadas en código.
+5. **Movimiento fluido**: la cámara viaja por el material y todo se mueve sin saltos (el stop-motion queda solo para recortes que entran a cuadro).
+6. **Lectura limpia**: texto sobre cabecera de papel en escenas de mapa, nada tapado, ninguna etiqueta cortada por el borde.
+7. **Antes de renderizar**, correr `node tools/qa_video.js <video>/index.html`. Si falla, se corrige primero.
 
 Próximo paso: componentes reutilizables (Remotion) y plantillas de escena.
