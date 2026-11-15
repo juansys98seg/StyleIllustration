@@ -3,13 +3,14 @@
 // Revisa cada escena y falla si:
 //  1. algún texto (menos las palabras gigantes decorativas .giant) sale del cuadro o invade el margen de 40 px;
 //  2. la escena no tiene una imagen, ilustración o gráfico (img, svg, canvas) que ocupe al menos el 12 % del cuadro;
+//  2b. alguna palabra de la tipografía cinética queda tapada por una imagen, mapa o gráfico;
 //  3. la escena está quieta: compara dos cuadros de la misma escena y exige diferencia visible.
 const {chromium}=require('playwright'); const path=require('path');
 (async()=>{
   const file=path.resolve(process.argv[2]||'index.html');
   const b=await chromium.launch(); const p=await b.newPage({viewport:{width:1080,height:1920}});
-  await p.goto('file://'+file); await p.evaluate(()=>document.fonts.ready); await p.waitForTimeout(300);
-  const scenes=await p.evaluate(()=>SCENES);
+  await p.goto('file://'+file); await p.evaluate(()=>document.fonts.ready); await p.waitForFunction(()=>window.READY===true||!window.boot,null,{timeout:20000}); await p.waitForTimeout(300);
+  const scenes=await p.evaluate(()=>window.SCENES_T||SCENES);
   let fails=0;
   for(const [id,s,e] of scenes){
     const tEnd=e-0.04, tA=s+(e-s)*0.35;
@@ -21,6 +22,9 @@ const {chromium}=require('playwright'); const path=require('path');
         const b=el.getBoundingClientRect(); if(!b.width) continue;
         if(b.left<M-1||b.right>W-M+1||b.top<M-1||b.bottom>H-M+1) out.push(`texto fuera de margen: "${el.textContent.trim().slice(0,30)}" [${Math.round(b.left)},${Math.round(b.right)}]`);
         if(el.classList.contains('fit')&&el.scrollWidth>el.clientWidth) out.push(`texto cortado: "${el.textContent.trim()}"`); }
+      const blocks=[...sc.querySelectorAll('.cut,.mapa,.ruler,.libro,svg.abs')].filter(m=>getComputedStyle(m).visibility!=='hidden'&&getComputedStyle(m).display!=='none'&&+getComputedStyle(m).opacity>0.05).map(m=>m.getBoundingClientRect());
+      for(const ln of sc.querySelectorAll('.kin .w')){ if(getComputedStyle(ln.closest('.kin')).visibility==='hidden'||+getComputedStyle(ln).opacity===0) continue; const a=ln.getBoundingClientRect();
+        for(const bx of blocks){ const ix=Math.min(a.right,bx.right)-Math.max(a.left,bx.left), iy=Math.min(a.bottom,bx.bottom)-Math.max(a.top,bx.top); if(ix>6&&iy>6){ out.push(`texto tapado por una imagen: "${ln.textContent}"`); break; } } }
       const media=[...sc.querySelectorAll('img,svg,canvas')].map(m=>m.getBoundingClientRect()).map(b=>Math.max(0,Math.min(b.right,W)-Math.max(b.left,0))*Math.max(0,Math.min(b.bottom,H)-Math.max(b.top,0))/(W*H));
       if(!media.some(a=>a>=0.12)) out.push('sin imagen/ilustración/gráfico de peso (≥12 % del cuadro)');
       return out; },id);

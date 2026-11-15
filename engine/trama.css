@@ -1,0 +1,35 @@
+/* TRAMA · estilos base para videos verticales 1080x1920. Ver bible/BIBLIA.md */
+@font-face{font-family:"Bricolage";src:url(fonts/bricolage.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%}
+@font-face{font-family:"Instrument";src:url(fonts/instrument-sans-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"Instrument";src:url(fonts/instrument-sans-latin-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:"Plex";src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Plex";src:url(fonts/ibm-plex-mono-latin-600-normal.woff2) format("woff2");font-weight:600}
+:root{--tinta:#17140F;--papel:#F2E6CF;--papel2:#E8D9BC;--naranja:#EE6A1F;--verde:#1F6E55;--mostaza:#F3A72B;--rosa:#E79A8C;--acero:#B8B5AE;--rojo:#CF3F2A;--azul:#2E5A9E}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--tinta)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--papel);font-family:"Instrument",sans-serif;color:var(--tinta)}
+.scene{position:absolute;inset:0;display:none;overflow:hidden}
+.cam{position:absolute;inset:0;transform-origin:50% 55%}
+.abs{position:absolute}
+.trama::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:var(--t,.22);
+  background-image:radial-gradient(var(--tinta) 1.6px,transparent 2.3px),radial-gradient(var(--tinta) 1.6px,transparent 2.3px);background-size:11px 11px;background-position:0 0,5.5px 5.5px;border-radius:inherit}
+.giant{position:absolute;white-space:nowrap;font-family:"Bricolage";font-weight:800;font-stretch:75%;font-size:480px;line-height:.8;letter-spacing:-.03em;opacity:.12}
+.kin{position:absolute;left:84px;right:150px;top:250px}
+.ln{display:block}
+.ln.in{font-family:"Instrument";font-weight:600;font-size:54px;line-height:1.12;margin-bottom:8px}
+.ln.key{font-family:"Bricolage";font-weight:800;font-stretch:76%;font-size:128px;line-height:.95;letter-spacing:-.03em;padding-top:.04em}
+.ln.tail{font-family:"Instrument";font-weight:600;font-size:50px;line-height:1.12;margin-top:14px}
+.w{display:inline-block;margin-right:.22em}
+.ln.key .w{margin-right:.16em}
+.meta{position:absolute;font-family:"Plex";font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;line-height:1.35}
+.fuente{position:absolute;left:84px;top:1540px;font-family:"Plex";font-weight:600;font-size:24px;letter-spacing:.05em;background:var(--tinta);color:var(--papel);padding:8px 16px}
+.credito{position:absolute;font-family:"Plex";font-weight:500;font-size:20px;letter-spacing:.05em;text-transform:uppercase;opacity:.75}
+.sello{position:absolute;font-family:"Plex";font-weight:600;font-size:40px;letter-spacing:.12em;border:7px solid currentColor;padding:10px 24px;border-radius:6px;background:rgba(242,230,207,.6);white-space:nowrap}
+.banda{position:absolute;left:84px;right:84px;text-align:center;font-family:"Bricolage";font-weight:800;font-stretch:75%;font-size:120px;line-height:1.05;padding:10px 0 6px;color:var(--papel);background:var(--tinta);white-space:nowrap;overflow:hidden}
+.circ{position:absolute;border-radius:50%;background:var(--naranja)}
+.ring{position:absolute;border-radius:50%;border:4px dotted var(--tinta);opacity:.55}
+.cut{position:absolute}
+#grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.13;z-index:50;background-size:540px 540px}
+.plate{position:absolute;inset:-60px;z-index:40;mix-blend-mode:multiply;display:none}
+.hl{background-image:linear-gradient(var(--mostaza),var(--mostaza));background-repeat:no-repeat;background-position:0 78%}
+svg text{font-family:"Plex";font-weight:600}
