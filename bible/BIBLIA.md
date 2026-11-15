@@ -337,6 +337,7 @@ La referencia 5 confirma la regla de "en dos": la escena se arma **pieza por pie
 - **Armado:** al empezar un plano, los recortes entran de a uno, cada 2 cuadros (15 fps), en una ráfaga de 0.5 a 1.5 s. Después la escena **se sostiene** de 3 a 5 s con movimiento mínimo.
 - **Boil de recortes:** en la ráfaga, cada pieza puede cambiar levemente de posición o rotación (±1°) en cada paso, como en el stop-motion real.
 - **Sin interpolación suave** en los elementos de collage: humo, nubes y pájaros avanzan a saltos.
+- **Excepción:** mapas, anotaciones, unidades y cámara se mueven fluidos (sección 21).
 - La cámara sigue las reglas de la sección 8 (suave). El contraste entre collage a saltos y cámara suave es parte de la firma.
 
 **Montaje para formatos con conductor en cámara** (opcional): pantalla dividida en vertical, con la animación arriba (55–60 %) y la persona abajo, y subtítulos en mayúsculas en la línea de unión, palabra por palabra.
@@ -390,6 +391,34 @@ Tomado de la referencia 6 (un globo terráqueo que gira, dibujado como una grill
 - Los glifos pueden "encenderse" de a grupos para revelar una región del mapa.
 
 `tools/trama_glifos.py` genera la trama a partir de cualquier imagen, con los colores de la paleta. Prueba en [`/examples/glifos-test.jpg`](../examples/glifos-test.jpg).
+
+---
+
+## 21. Mapas, batallas y procesos: material real + dibujos a mano
+
+Aprendido en el piloto 02: los mapas y diagramas **dibujados desde cero en código** (líneas rectas, rectángulos, flechas rígidas) se ven amateurs. El estándar de calidad es el del explainer editorial: **material real abajo, dibujos a mano arriba, cámara fluida**.
+
+**Base: siempre material real**
+- Mapas de época (atlas del siglo XIX, planos militares) o mapas actuales con licencia, en duotono tinta + papel.
+- Fotos reales (Pexels, archivo) o pinturas de época cuando no hay mapa: los dibujos van encima de la foto.
+- Nunca un fondo liso con formas geométricas inventadas.
+
+**Dibujos encima (`engine/anota.js`)**
+- **Trazos de pincel** con grosor variable (fino → grueso → fino) y leve temblor: flechas, subrayados, tachados. Nada de líneas de grosor constante.
+- **Curvas**, no rectas: las flechas siguen el terreno (caminos, ríos, valles).
+- **Puntas de flecha dibujadas** con dos trazos que aparecen al final, no triángulos.
+- **Círculos de marcador** de algo más de una vuelta, irregulares, que se dibujan en vivo.
+- **Etiquetas de papel** clavadas en el mapa, que entran con rebote.
+- **Unidades estilo atlas** (rectángulos redondeados con borde de tinta y sombra) que viajan por curvas y dejan rastro. Sus nombres siempre derechos, nunca rotados.
+- Colores: naranja para el protagonista, azul y verde para los demás actores, mostaza para marcar, tinta para tachar.
+
+**Movimiento: fluido**
+- La **cámara viaja por el mapa** con keyframes y curvas suaves (acercarse al detalle, alejarse para ver el tablero). Los dibujos viven en la misma capa que el mapa, así quedan pegados al terreno.
+- Los trazos, las unidades y la cámara se mueven **sin pasos**: el stop-motion de 15 fps (sección 18) queda solo para recortes de collage que entran a cuadro, nunca para mapas ni anotaciones.
+
+**Lectura**
+- En escenas de mapa, el texto va sobre una **cabecera de papel rasgado** arriba; el mapa ocupa el resto del cuadro.
+- Ninguna etiqueta dibujada puede quedar cortada por el borde (lo controla `tools/qa_video.js`).
 
 ---
 

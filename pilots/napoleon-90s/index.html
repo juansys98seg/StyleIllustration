@@ -9,16 +9,22 @@
 .ruler{position:absolute;width:150px;background:var(--papel);border:5px solid var(--tinta);box-shadow:10px 10px 0 var(--tinta)}
 .tick{position:absolute;left:0;height:4px;background:var(--tinta)}
 .tick span{position:absolute;left:84px;top:-16px;font-family:Plex;font-weight:600;font-size:26px}
-.mapa{position:absolute;left:40px;top:740px;width:1000px;height:780px;background:var(--papel2);border:5px solid var(--tinta);box-shadow:14px 14px 0 var(--tinta);overflow:hidden}
-.mapa svg{position:absolute;inset:0}
 .ficha{position:absolute;left:84px;top:110px;font-family:Plex;font-weight:600;font-size:26px;letter-spacing:.1em;text-transform:uppercase}
 .ficha.r{left:auto;right:84px;text-align:right}
 .libro{position:absolute;background:var(--papel);border:5px solid var(--tinta);box-shadow:12px 12px 0 var(--tinta);padding:26px 30px}
+.mapview{position:absolute;inset:0;overflow:hidden}
+.mapwrap{position:absolute;left:0;top:0;transform-origin:0 0}
+.mapwrap img{position:absolute;left:0;top:0;display:block}
+.mapwrap svg{position:absolute;left:0;top:0;overflow:visible}
+.cabwrap{position:absolute;left:0;right:0;top:0;height:760px;z-index:6;filter:drop-shadow(0 12px 0 rgba(23,20,15,.55))}
+.cabecera{position:absolute;inset:0;background:var(--papel)}
+.scene.map .kin{top:240px}
+.pane{position:absolute;left:40px;right:40px;height:440px;overflow:hidden;border:6px solid var(--tinta);box-shadow:12px 12px 0 var(--tinta);background:var(--papel2)}
+.pane .mapwrap{transform-origin:0 0}
 </style>
 </head>
 <body>
 <div id="stage">
-
 <!-- 1 · No era bajito -->
 <div class="scene" id="s1" style="background:var(--papel)">
   <div class="cam">
@@ -47,88 +53,84 @@
   <div class="kin" data-lines='[["in","Lo que sí era: el general que cambió para siempre",4.96,7.30],["key","cómo se hace la guerra.",7.30,8.39],["tail","Y lo vio antes que nadie.",8.68,9.80]]'></div>
 </div>
 
-<!-- 3 · Toulon: el puerto -->
+<!-- 3 · Toulon: la pintura -->
 <div class="scene" id="s3" style="background:var(--verde);color:var(--papel)">
   <div class="cam">
     <div class="giant" data-slide="-160" style="left:-20px;top:1400px;color:var(--papel);opacity:.13">TOULON</div>
     <div class="circ trama pz" data-at="0" style="left:200px;top:760px;width:680px;height:680px;--t:.25"></div>
-    <img class="cut pz drift" data-at="0.08" data-drift="-30" src="assets/toulon.png" style="left:230px;top:660px;width:620px;transform:rotate(-3deg)">
+    <img class="cut pz drift" data-at="0.06" data-drift="-30" src="assets/toulon.png" style="left:230px;top:660px;width:620px;transform:rotate(-3deg)">
+    <svg class="overlay" style="position:absolute;left:0;top:0;pointer-events:none" width="1080" height="1920" viewBox="0 0 1080 1920" id="sv3"></svg>
     <div class="ficha pz" data-at="0.2">Batalla 1 · Sitio</div>
     <div class="ficha r pz" data-at="0.2">Toulon, Francia<br>Sep–Dic 1793</div>
     <div class="credito" style="left:84px;top:1600px;color:var(--papel)">Pintura: É. Detaille · dominio público</div>
   </div>
-  <div class="kin" data-lines='[["key","Toulon, 1793.",10.24,12.18],["in","Los británicos ocupaban el puerto.",12.49,14.15]]'></div>
+  <div class="kin" data-lines='[["key","Toulon, 1793.",10.24,12.18]]'></div>
 </div>
 
-<!-- 4–5 · Toulon: la colina (mapa) -->
-<div class="scene" id="s4" style="background:var(--papel)">
-  <div class="cam">
-    <div class="mapa" id="m4"><svg id="sv4" width="1000" height="860" viewBox="0 0 1000 860" preserveAspectRatio="xMidYMid meet"></svg></div>
-    <div class="ficha pz" data-at="0.1">Toulon · 1793 · esquema</div>
-    <div class="banda pz" data-at="7.1" style="top:1440px">VER EL TERRENO</div>
-  </div>
-  <div class="kin" data-show="[14.45,19.70]" data-lines='[["in","Un capitán de 24 años se dio cuenta:",14.63,16.81],["key","la clave no era la ciudad,",17.11,18.31],["tail","sino una colina.",18.57,19.42]]'></div>
-  <div class="kin" data-show="[19.70,22.70]" data-lines='[["in","Puso cañones ahí…",19.84,20.74],["key","y la flota tuvo que irse.",20.96,22.29]]'></div>
+<!-- 4–5 · Toulon: el mapa -->
+<div class="scene map" id="s4" style="background:var(--papel2)">
+  <div class="mapview"><div class="mapwrap" id="mw4"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha" style="z-index:7">Toulon · 1793</div>
+  <div class="banda pz" data-at="9.15" style="top:1440px;z-index:8">VER EL TERRENO</div>
+  <img class="cut pz" data-at="0.35" id="bonaparte4" src="assets/napoleon.png" style="left:770px;top:1290px;width:220px;transform:rotate(5deg);z-index:7">
+  <div class="fuente" style="top:1610px;z-index:7">Mapa: A.K. Johnston, 1850 · dominio público</div>
+  <div class="kin" style="z-index:9" data-show="[12.40,14.55]" data-lines='[["in","Los británicos",12.49,13.20],["key","ocupaban el puerto.",13.20,14.15]]'></div>
+  <div class="kin" style="z-index:9" data-show="[14.55,19.70]" data-lines='[["in","Un capitán de 24 años se dio cuenta:",14.63,16.81],["key","la clave no era la ciudad,",17.11,18.31],["tail","sino una colina.",18.57,19.42]]'></div>
+  <div class="kin" style="z-index:9" data-show="[19.70,22.70]" data-lines='[["in","Puso cañones ahí…",19.84,20.74],["key","y la flota tuvo que irse.",20.96,22.29]]'></div>
 </div>
 
 <!-- 6 · Italia -->
-<div class="scene" id="s6" style="background:var(--papel)">
-  <div class="cam">
-    <div class="mapa" id="m6"><svg id="sv6" width="1000" height="860" viewBox="0 0 1000 860" preserveAspectRatio="xMidYMid meet"></svg></div>
-    <div class="ficha pz" data-at="0.1">Batalla 2 · Italia</div>
-    <div class="ficha r pz" data-at="0.1">Abril 1796<br>Esquema</div>
-    <div class="banda pz" data-at="7.7" style="top:1440px">DIVIDIR</div>
-  </div>
-  <div class="kin" data-show="[22.60,29.20]" data-lines='[["key","Italia, 1796.",22.76,24.87],["in","Austríacos y piamonteses lo superaban en número,",25.20,27.58],["tail","pero estaban separados.",27.88,28.94]]'></div>
-  <div class="kin" data-show="[29.20,31.70]" data-lines='[["in","Se metió en el medio",29.27,30.30],["key","y los venció de a uno.",30.30,31.35]]'></div>
+<div class="scene map" id="s6" style="background:var(--papel2)">
+  <div class="mapview"><div class="mapwrap" id="mw6"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha" style="z-index:7">Batalla 2 · Italia</div>
+  <div class="ficha r" style="z-index:7">Abril 1796</div>
+  <div class="banda pz" data-at="7.7" style="top:1440px;z-index:8">DIVIDIR</div>
+  <div class="fuente" style="top:1610px;z-index:7">Plano de Montenotte, c. 1800 · dominio público</div>
+  <div class="kin" style="z-index:9" data-show="[22.60,29.20]" data-lines='[["key","Italia, 1796.",22.76,24.87],["in","Austríacos y piamonteses lo superaban en número,",25.20,27.58],["tail","pero estaban separados.",27.88,28.94]]'></div>
+  <div class="kin" style="z-index:9" data-show="[29.20,31.70]" data-lines='[["in","Se metió en el medio",29.27,30.30],["key","y los venció de a uno.",30.30,31.35]]'></div>
 </div>
 
-<!-- 7 · Los cuerpos -->
-<div class="scene trama" id="s7" style="background:var(--mostaza);--t:.15">
-  <div class="cam">
-    <div class="mapa" id="m7" style="background:var(--papel)"><svg id="sv7" width="1000" height="860" viewBox="0 0 1000 860" preserveAspectRatio="xMidYMid meet"></svg></div>
-    <div class="ficha pz" data-at="0.1">La gran idea</div>
-    <div class="ficha r pz" data-at="0.1">Cuerpo de ejército<br>● infantería ▲ caballería ■ artillería</div>
-  </div>
-  <div class="kin" data-show="[31.60,36.10]" data-lines='[["in","Su gran idea:",31.84,32.51],["key","partir el ejército en cuerpos.",32.77,34.21],["tail","Pequeños ejércitos completos,",34.49,35.95]]'></div>
-  <div class="kin" data-show="[36.10,39.60]" data-lines='[["in","que marchaban separados, rápido…",36.14,37.92],["key","y se juntaban para pelear.",38.08,39.29]]'></div>
-</div>
-
-<!-- 8 · Ulm -->
-<div class="scene" id="s8" style="background:var(--papel)">
-  <div class="cam">
-    <div class="mapa" id="m8"><svg id="sv8" width="1000" height="860" viewBox="0 0 1000 860" preserveAspectRatio="xMidYMid meet"></svg></div>
-    <div class="ficha pz" data-at="0.1">Batalla 3 · Ulm</div>
-    <div class="ficha r pz" data-at="0.1">Octubre 1805<br>Esquema</div>
-    <div class="banda pz" data-at="8.7" style="top:1440px">RODEAR</div>
-  </div>
-  <div class="kin" data-show="[39.55,43.80]" data-lines='[["key","Ulm, 1805.",39.76,41.41],["in","Los austríacos lo esperaban de frente.",41.79,43.50]]'></div>
-  <div class="kin" data-show="[43.80,49.25]" data-lines='[["in","Él los rodeó por detrás, les cortó el camino,",43.86,46.25],["key","y un ejército entero",46.45,47.94],["tail","se rindió casi sin combatir.",48.04,48.97]]'></div>
+<!-- 7–8 · Los cuerpos y Ulm (mismo mapa) -->
+<div class="scene map" id="s7" style="background:var(--papel2)">
+  <div class="mapview"><div class="mapwrap" id="mw7"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha" style="z-index:7" id="ficha7">La gran idea · 1805</div>
+  <div class="banda pz" data-at="16.7" style="top:1440px;z-index:8">RODEAR</div>
+  <div class="fuente" style="top:1610px;z-index:7">Mapa: A.K. Johnston, 1850 · dominio público</div>
+  <div class="kin" style="z-index:9" data-show="[31.60,36.10]" data-lines='[["in","Su gran idea:",31.84,32.51],["key","partir el ejército en cuerpos.",32.77,34.21],["tail","Pequeños ejércitos completos,",34.49,35.95]]'></div>
+  <div class="kin" style="z-index:9" data-show="[36.10,39.60]" data-lines='[["in","que marchaban separados, rápido…",36.14,37.92],["key","y se juntaban para pelear.",38.08,39.29]]'></div>
+  <div class="kin" style="z-index:9" data-show="[39.60,43.80]" data-lines='[["key","Ulm, 1805.",39.76,41.41],["in","Los austríacos lo esperaban de frente.",41.79,43.50]]'></div>
+  <div class="kin" style="z-index:9" data-show="[43.80,49.25]" data-lines='[["in","Él los rodeó por detrás, les cortó el camino,",43.86,46.25],["key","y un ejército entero",46.45,47.94],["tail","se rindió casi sin combatir.",48.04,48.97]]'></div>
 </div>
 
 <!-- 9–10 · Austerlitz -->
-<div class="scene" id="s9" style="background:var(--papel)">
-  <div class="cam">
-    <div class="mapa" id="m9"><svg id="sv9" width="1000" height="860" viewBox="0 0 1000 860" preserveAspectRatio="xMidYMid meet"></svg></div>
-    <div class="ficha pz" data-at="0.1">Batalla 4 · Austerlitz</div>
-    <div class="ficha r pz" data-at="0.1">2 · 12 · 1805<br>Esquema</div>
-    <div class="banda pz" data-at="11.4" style="top:1440px">ENGAÑAR</div>
-  </div>
-  <div class="kin" data-show="[49.20,52.90]" data-lines='[["key","Austerlitz.",49.36,49.95],["in","Rusos y austríacos querían cortarle la retirada.",50.24,52.65]]'></div>
-  <div class="kin" data-show="[52.90,56.70]" data-lines='[["in","Napoleón dejó su flanco derecho a la vista,",53.02,54.98],["key","débil, como carnada.",55.20,56.34]]'></div>
-  <div class="kin" data-show="[56.70,61.60]" data-lines='[["in","Bajaron de la colina para atacarlo…",56.75,58.32],["key","y él tomó la colina vacía",58.63,60.02],["tail","y les partió el centro.",60.21,61.29]]'></div>
+<div class="scene map" id="s9" style="background:var(--papel2)">
+  <div class="mapview"><div class="mapwrap" id="mw9"></div></div>
+  <img class="cut" id="gerard9" src="assets/gerard.png" style="left:130px;top:760px;width:820px;z-index:6">
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha" style="z-index:7">Batalla 4 · Austerlitz</div>
+  <div class="ficha r" style="z-index:7">2 · 12 · 1805</div>
+  <div class="banda pz" data-at="11.4" style="top:1440px;z-index:8">ENGAÑAR</div>
+  <div class="fuente" style="top:1610px;z-index:7" id="fuente9">Pintura: F. Gérard, 1810 · dominio público</div>
+  <div class="kin" style="z-index:9" data-show="[49.20,52.90]" data-lines='[["key","Austerlitz.",49.36,49.95],["in","Rusos y austríacos querían cortarle la retirada.",50.24,52.65]]'></div>
+  <div class="kin" style="z-index:9" data-show="[52.90,56.70]" data-lines='[["in","Napoleón dejó su flanco derecho a la vista,",53.02,54.98],["key","débil, como carnada.",55.20,56.34]]'></div>
+  <div class="kin" style="z-index:9" data-show="[56.70,61.60]" data-lines='[["in","Bajaron de la colina para atacarlo…",56.75,58.32],["key","y él tomó la colina vacía",58.63,60.02],["tail","y les partió el centro.",60.21,61.29]]'></div>
 </div>
 
-<!-- 11 · Destruir al ejército (las manos) -->
-<div class="scene trama" id="s11" style="background:var(--verde);color:var(--papel);--t:.15">
+<!-- 11 · Ciudades no, ejércitos sí -->
+<div class="scene" id="s11" style="background:var(--verde);color:var(--papel)">
   <div class="cam">
-    <div class="abs" style="left:90px;top:900px;width:900px;height:560px;background:var(--papel2);border:5px solid var(--tinta);box-shadow:14px 14px 0 var(--tinta);background-image:linear-gradient(rgba(23,20,15,.25) 2px,transparent 2px),linear-gradient(90deg,rgba(23,20,15,.25) 2px,transparent 2px);background-size:112px 112px"></div>
-    <svg class="abs" id="sv11" style="left:0;top:780px" width="1080" height="760" viewBox="0 220 1080 760"></svg>
-    <div class="sello pz" data-at="2.6" style="left:110px;top:780px;color:var(--tinta);background:var(--papel);transform:rotate(-6deg)">ANÁLISIS</div>
+    <div class="abs pz drift" data-at="0.05" data-drift="-20" style="left:70px;top:820px;width:450px;height:560px;overflow:hidden;border:6px solid var(--papel);box-shadow:12px 12px 0 var(--tinta);transform:rotate(-3deg)"><img src="assets/map_toulon.jpg" style="position:absolute;width:1600px;left:-560px;top:-470px"></div>
+    <img class="cut pz drift" data-at="0.15" data-drift="20" src="assets/gerard.png" style="left:540px;top:860px;width:480px;transform:rotate(3deg)">
+    <svg class="overlay" id="sv11" style="position:absolute;left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+    <div class="meta" style="left:90px;top:1430px;color:var(--papel)">Tomar ciudades</div>
+    <div class="meta" style="left:600px;top:1430px;color:var(--papel)">Destruir ejércitos</div>
+    <div class="sello pz" data-at="2.6" style="left:640px;top:1500px;color:var(--tinta);background:var(--papel);transform:rotate(-6deg)">ANÁLISIS</div>
   </div>
   <div class="kin" data-lines='[["in","No buscaba conquistar ciudades.",61.70,63.16],["key","Buscaba destruir al ejército enemigo.",63.41,65.32]]'></div>
 </div>
-
 <!-- 12 · Waterloo -->
 <div class="scene" id="s12" style="background:var(--tinta);color:var(--papel)">
   <div class="cam">
@@ -158,28 +160,26 @@
   <div class="kin" data-lines='[["in","Clausewitz, que peleó contra él, lo llamó",69.43,71.60],["key","“el dios de la guerra”.",71.60,72.57]]'></div>
 </div>
 
-<!-- 14 · San Martín -->
-<div class="scene" id="s14" style="background:var(--papel)">
-  <div class="cam">
-    <div class="mapa" id="m14" style="top:820px;height:700px"><svg id="sv14" width="1000" height="800" viewBox="0 0 1000 800"></svg></div>
-    <img class="cut pz drift" data-at="0.05" data-drift="-20" src="assets/sanmartin.png" style="left:700px;top:1170px;width:290px;transform:rotate(4deg);z-index:3">
-    <div class="sello pz" data-at="4.6" style="left:110px;top:1420px;color:var(--tinta);transform:rotate(-5deg)">ANÁLISIS</div>
-    <div class="credito" style="left:84px;top:1600px">Retrato: J. Gil de Castro, 1818 · dominio público</div>
-  </div>
-  <div class="kin" data-lines='[["in","Y San Martín, que enfrentó a sus tropas en España,",72.97,75.24],["key","cruzó los Andes en columnas separadas",75.48,77.40],["tail","que se juntaron del otro lado.",77.40,78.60]]'></div>
+<!-- 14 · San Martín: foto de los Andes con las columnas dibujadas encima -->
+<div class="scene map" id="s14" style="background:var(--papel2)">
+  <div class="mapview"><div class="mapwrap" id="mw14"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <img class="cut pz" data-at="0.1" src="assets/sanmartin.png" style="left:740px;top:1300px;width:250px;transform:rotate(4deg);z-index:7">
+  <div class="sello pz" data-at="4.7" style="left:90px;top:1430px;color:var(--tinta);transform:rotate(-5deg);z-index:8">ANÁLISIS</div>
+  <div class="fuente" style="top:1610px;z-index:7">Foto: M. B. C. / Pexels · Retrato: Gil de Castro</div>
+  <div class="kin" style="z-index:9" data-lines='[["in","Y San Martín, que enfrentó a sus tropas en España,",72.97,75.24],["key","cruzó los Andes en columnas separadas",75.48,77.40],["tail","que se juntaron del otro lado.",77.40,78.60]]'></div>
 </div>
 
 <!-- 15 · ¿Te suena? -->
 <div class="scene" id="s15" style="background:var(--mostaza)">
   <div class="cam">
-    <div class="mapa" style="top:620px;height:420px;background:var(--papel)"><svg id="sv15a" width="1000" height="420" viewBox="0 0 1000 420"></svg></div>
-    <div class="mapa" style="top:1090px;height:420px;background:var(--papel)"><svg id="sv15b" width="1000" height="420" viewBox="0 0 1000 420"></svg></div>
-    <div class="meta" style="left:70px;top:635px">Napoleón · 1805</div>
-    <div class="meta" style="left:70px;top:1105px">San Martín · 1817</div>
+    <div class="pane" style="top:640px"><div class="mapwrap" id="mw15a"></div></div>
+    <div class="pane" style="top:1110px"><div class="mapwrap" id="mw15b"></div></div>
+    <div class="meta" style="left:80px;top:650px;background:var(--papel);padding:4px 10px;z-index:3">Napoleón · Ulm, 1805</div>
+    <div class="meta" style="left:80px;top:1120px;background:var(--papel);padding:4px 10px;z-index:3">San Martín · Andes, 1817</div>
   </div>
   <div class="kin" style="top:300px" data-lines='[["key","¿Te suena?",79.02,79.42]]'></div>
 </div>
-
 <!-- 16 · cierre -->
 <div class="scene" id="s16" style="background:var(--tinta)">
   <canvas id="g16" width="1080" height="1920" class="abs" style="left:0;top:0"></canvas>
@@ -192,27 +192,16 @@
 <div class="plate" id="pl3" style="background:var(--mostaza)"></div>
 <div id="grain"></div>
 </div>
-
 <script src="../../engine/trama.js"></script>
+<script src="../../engine/anota.js"></script>
 <script>
 const DUR = 83.2;
 window.PLATES = [10.0, 31.6, 61.55, 69.25];
 const INK = '#17140F', PAP = '#F2E6CF', NAR = '#EE6A1F', VER = '#1F6E55', AZU = '#2E5A9E', MOS = '#F3A72B', ACE = '#B8B5AE';
-
-// ---------- piezas de mapa ----------
-function grid(sv, w, h) { const g = svgEl('g', { stroke: 'rgba(23,20,15,.12)', 'stroke-width': 2 }, sv); for (let x = 0; x < w; x += 100) svgEl('line', { x1: x, y1: 0, x2: x, y2: h }, g); for (let y = 0; y < h; y += 100) svgEl('line', { x1: 0, y1: y, x2: w, y2: y }, g); }
-function hill(sv, x, y, rx, ry, label) { const g = svgEl('g', {}, sv); for (let i = 0; i < 4; i++) svgEl('ellipse', { cx: x, cy: y, rx: rx * (1 - i * .22), ry: ry * (1 - i * .22), fill: i === 3 ? '#cdbb98' : 'none', stroke: INK, 'stroke-width': 3, opacity: .7 }, g);
-  if (label) { const t = svgEl('text', { x, y: y + ry + 34, 'text-anchor': 'middle', 'font-size': 24, fill: INK }, g); t.textContent = label; } return g; }
-function city(sv, x, y, label) { const g = svgEl('g', {}, sv); svgEl('rect', { x: x - 26, y: y - 26, width: 52, height: 52, fill: ACE, stroke: INK, 'stroke-width': 5 }, g); svgEl('rect', { x: x - 10, y: y - 40, width: 20, height: 16, fill: ACE, stroke: INK, 'stroke-width': 4 }, g);
-  const t = svgEl('text', { x, y: y + 60, 'text-anchor': 'middle', 'font-size': 26, fill: INK }, g); t.textContent = label; return g; }
-function ship(sv, x, y, color = AZU) { const g = svgEl('g', {}, sv); svgEl('path', { d: 'M-40 0 L40 0 L28 18 L-28 18 Z', fill: color, stroke: INK, 'stroke-width': 4, 'stroke-linejoin': 'round' }, g); svgEl('line', { x1: 0, y1: 0, x2: 0, y2: -46, stroke: INK, 'stroke-width': 4 }, g); svgEl('path', { d: 'M3 -44 L30 -14 L3 -12 Z', fill: PAP, stroke: INK, 'stroke-width': 3 }, g); g.setAttribute('transform', `translate(${x},${y})`); g._x = x; g._y = y; return g; }
-function cannon(sv, x, y) { const g = svgEl('g', {}, sv); svgEl('rect', { x: -6, y: -12, width: 46, height: 18, rx: 6, fill: INK }, g); svgEl('circle', { cx: 0, cy: 8, r: 12, fill: ACE, stroke: INK, 'stroke-width': 4 }, g); g.setAttribute('transform', `translate(${x},${y}) rotate(-20)`); return g; }
-function label(sv, x, y, txt, size = 24, color = INK) { const t = svgEl('text', { x, y, 'font-size': size, fill: color, 'text-anchor': 'middle' }, sv); t.textContent = txt; return t; }
-function marker(sv) { return svgEl('ellipse', { rx: 90, ry: 70, fill: 'none', stroke: MOS, 'stroke-width': 12, 'stroke-dasharray': '600', 'stroke-dashoffset': 600, transform: 'rotate(-8)' }, sv); }
-function setMarker(m, x, y, k) { m.setAttribute('cx', x); m.setAttribute('cy', y); m.style.strokeDashoffset = 600 * (1 - clamp(k)); m.style.display = k > 0 ? 'block' : 'none'; }
-function mountains(sv, x0, y0, x1, y1, n, w) { const g = svgEl('g', {}, sv); for (let i = 0; i < n; i++) { const t = i / (n - 1), x = x0 + (x1 - x0) * t, y = y0 + (y1 - y0) * t; svgEl('path', { d: `M${x - w} ${y + w * .7} L${x} ${y - w * .8} L${x + w} ${y + w * .7} Z`, fill: '#cdbb98', stroke: INK, 'stroke-width': 4, 'stroke-linejoin': 'round' }, g); svgEl('path', { d: `M${x - w * .3} ${y - w * .35} L${x} ${y - w * .8} L${x + w * .3} ${y - w * .35}`, fill: PAP, stroke: INK, 'stroke-width': 3 }, g); } return g; }
 const S = {};
-
+</script>
+<script src="scenes_v2.js"></script>
+<script>
 const SCENES = [
  { id: 's1', s: 0, e: 4.85, update(el, lt, t) {
     const r = document.getElementById('ruler');
@@ -227,120 +216,11 @@ const SCENES = [
       if (v < 0.55) continue; x.strokeStyle = 'rgba(242,230,207,.35)'; x.lineWidth = 2; x.beginPath(); x.arc(cx, cy, v > .8 ? 12 : 6, 0, 7); x.stroke(); }
     const l = document.getElementById('lupa'); const a = lt * 0.9; l.style.transform = `translate(${390 + Math.cos(a) * 250}px,${1060 + Math.sin(a * 1.3) * 220}px)`;
  }},
- { id: 's3', s: 10.0, e: 14.45 },
- { id: 's4', s: 14.45, e: 22.6, setup() {
-    const sv = document.getElementById('sv4'); grid(sv, 1000, 860);
-    svgEl('path', { d: 'M0 360 C200 330 340 420 420 480 C520 560 700 520 1000 430 L1000 860 L0 860 Z', fill: VER, stroke: INK, 'stroke-width': 5, opacity: .9 }, sv);
-    label(sv, 720, 760, 'RADA DE TOULON', 26, PAP);
-    S.city4 = city(sv, 640, 250, 'TOULON');
-    svgEl('path', { d: 'M120 860 L150 600 C180 540 260 520 300 560 L340 860 Z', fill: '#d9c9a6', stroke: INK, 'stroke-width': 5 }, sv);
-    S.hill4 = hill(sv, 230, 610, 80, 55, 'L’ÉGUILLETTE');
-    S.ships = [ship(sv, 520, 620), ship(sv, 640, 690), ship(sv, 760, 610), ship(sv, 860, 700)];
-    S.cannons = [cannon(sv, 200, 600), cannon(sv, 250, 620), cannon(sv, 225, 575)];
-    S.fire = [arrow(sv, 'M270 590 C380 560 450 600 520 620', { color: NAR, w: 10, dash: true }), arrow(sv, 'M270 610 C420 650 560 690 640 690', { color: NAR, w: 10, dash: true }), arrow(sv, 'M270 580 C450 520 650 560 760 600', { color: NAR, w: 10, dash: true })];
-    S.mark4 = marker(sv);
-  }, update(el, lt, t) {
-    if (t < 18.57) setMarker(S.mark4, 640, 250, prog(t, 17.11, 0.5)); else setMarker(S.mark4, 230, 610, prog(t, 18.57, 0.45));
-    S.cannons.forEach((c, i) => c.style.display = t >= 19.84 + i * 0.12 ? 'block' : 'none');
-    S.fire.forEach((f, i) => setArrow(f, prog(t, 20.2 + i * 0.12, 0.4)));
-    const k = q15(Math.max(0, t - 20.96)); S.ships.forEach((s, i) => { s.setAttribute('transform', `translate(${s._x + k * 260 * (1 + i * .15)},${s._y + k * 40})`); });
- }},
- { id: 's6', s: 22.6, e: 31.6, setup() {
-    const sv = document.getElementById('sv6'); grid(sv, 1000, 860);
-    mountains(sv, 80, 140, 920, 160, 9, 46); label(sv, 500, 260, 'ALPES', 26);
-    svgEl('path', { d: 'M0 700 C300 640 600 760 1000 690 L1000 860 L0 860 Z', fill: VER, stroke: INK, 'stroke-width': 5, opacity: .85 }, sv); label(sv, 500, 810, 'MAR DE LIGURIA', 24, PAP);
-    S.pie = army(sv, { x: 120, y: 360, cols: 5, rows: 4, cell: 40, color: VER }); label(sv, 200, 540, 'PIAMONTE', 24);
-    S.aus = army(sv, { x: 700, y: 340, cols: 5, rows: 5, cell: 40, color: AZU }); label(sv, 780, 560, 'AUSTRIA', 24);
-    S.fra = army(sv, { x: 440, y: 580, cols: 4, rows: 2, cell: 40, color: NAR });
-    S.wedge = arrow(sv, 'M500 580 C500 520 500 470 500 420', { color: NAR, w: 34 });
-    S.push1 = arrow(sv, 'M460 430 C400 420 360 430 320 440', { color: NAR, w: 22 });
-    S.push2 = arrow(sv, 'M560 430 C620 420 660 420 690 420', { color: NAR, w: 22 });
-  }, update(el, lt, t) {
-    const sep = easeIO(prog(t, 27.88, 0.8)); place(S.pie, 120 - sep * 30, 360); place(S.aus, 700 + sep * 30, 340);
-    const k = q15(prog(t, 29.27, 0.9)); place(S.fra, 440, 580 - k * 170); setArrow(S.wedge, prog(t, 29.27, 0.7));
-    setArrow(S.push1, prog(t, 30.3, 0.4)); setArrow(S.push2, prog(t, 30.9, 0.4));
-    S.pie.style.opacity = 1 - prog(t, 30.5, 0.4) * 0.75; S.aus.style.opacity = 1 - prog(t, 31.1, 0.4) * 0.75;
- }},
- { id: 's7', s: 31.6, e: 39.55, setup() {
-    const sv = document.getElementById('sv7'); grid(sv, 1000, 860);
-    S.target = svgEl('circle', { cx: 500, cy: 170, r: 60, fill: 'none', stroke: INK, 'stroke-width': 6, 'stroke-dasharray': '14 10' }, sv); label(sv, 500, 90, 'BATALLA', 24);
-    S.corps = []; const xs = [100, 300, 470, 640, 820];
-    xs.forEach((x, i) => { S.corps.push(army(sv, { x: 440 + (i % 3) * 30, y: 640 + Math.floor(i / 3) * 30, cols: 3, rows: 3, cell: 34, color: NAR, shape: 'mix' })); });
-    S.roads = xs.map((x, i) => svgEl('path', { d: `M${x + 30} 720 C${x + 30} 520 ${500 + (x - 500) * .4} 360 500 200`, fill: 'none', stroke: 'rgba(23,20,15,.35)', 'stroke-width': 5, 'stroke-dasharray': '4 12' }, sv));
-    S.xs = xs;
-  }, update(el, lt, t) {
-    const split = easeOut(prog(t, 32.77, 0.9));
-    const march = q15(prog(t, 36.14, 1.8)), join = easeIO(prog(t, 38.08, 0.7));
-    S.corps.forEach((g, i) => { const x0 = 440, y0 = 640, x1 = S.xs[i], y1 = 680; let x = x0 + (x1 - x0) * split, y = y0 + (y1 - y0) * split;
-      const path = S.roads[i], L = path.getTotalLength(); if (march > 0) { const pt = path.getPointAtLength(L * Math.min(march, 1) * 0.72); x = pt.x - 34; y = pt.y - 34; }
-      if (join > 0) { const pt = path.getPointAtLength(L * (0.72 + 0.28 * join)); x = pt.x - 34; y = pt.y - 34; }
-      place(g, x, y); });
-    S.roads.forEach(r => r.style.opacity = split);
-    S.target.setAttribute('stroke', t >= 38.08 ? NAR : INK); S.target.setAttribute('stroke-width', t >= 38.08 ? 12 : 6);
- }},
- { id: 's8', s: 39.55, e: 49.2, setup() {
-    const sv = document.getElementById('sv8'); grid(sv, 1000, 860);
-    svgEl('path', { d: 'M0 470 C200 440 360 500 520 470 C680 440 820 500 1000 470', fill: 'none', stroke: VER, 'stroke-width': 34 }, sv);
-    svgEl('path', { d: 'M0 470 C200 440 360 500 520 470 C680 440 820 500 1000 470', fill: 'none', stroke: INK, 'stroke-width': 4, 'stroke-dasharray': '2 0', opacity: .4 }, sv); label(sv, 860, 530, 'DANUBIO', 24, VER);
-    city(sv, 560, 420, 'ULM'); label(sv, 90, 250, '← SELVA NEGRA', 24);
-    S.mack = army(sv, { x: 330, y: 380, cols: 5, rows: 4, cell: 40, color: AZU });
-    S.look = arrow(sv, 'M320 440 C260 440 220 440 170 440', { color: AZU, w: 16 });
-    S.feint = arrow(sv, 'M40 620 C120 600 170 560 220 520', { color: NAR, w: 14, dash: true });
-    S.a1 = arrow(sv, 'M120 120 C380 60 640 80 760 200 C820 270 800 360 720 420', { color: NAR, w: 26 });
-    S.a2 = arrow(sv, 'M200 60 C500 10 860 80 900 300 C920 420 820 520 700 560', { color: NAR, w: 26 });
-    S.a3 = arrow(sv, 'M60 160 C300 160 470 200 520 300', { color: NAR, w: 22 });
-  }, update(el, lt, t) {
-    setArrow(S.look, prog(t, 41.79, 0.6)); setArrow(S.feint, prog(t, 42.4, 0.6));
-    setArrow(S.a1, prog(t, 43.86, 1.3)); setArrow(S.a2, prog(t, 44.3, 1.4)); setArrow(S.a3, prog(t, 45.3, 0.8));
-    surrender(S.mack, q15(prog(t, 48.04, 0.8)) * 1.05);
- }},
- { id: 's9', s: 49.2, e: 61.55, setup() {
-    const sv = document.getElementById('sv9'); grid(sv, 1000, 860);
-    hill(sv, 520, 380, 230, 150, 'ALTURAS DE PRATZEN');
-    label(sv, 120, 120, 'FRANCIA', 26, NAR); label(sv, 880, 120, 'ALIADOS', 26, AZU);
-    S.allies = army(sv, { x: 400, y: 300, cols: 7, rows: 4, cell: 36, color: AZU });
-    S.fcen = army(sv, { x: 90, y: 330, cols: 3, rows: 4, cell: 36, color: NAR });
-    S.fright = army(sv, { x: 150, y: 680, cols: 3, rows: 1, cell: 36, color: NAR });
-    S.descend = arrow(sv, 'M560 470 C520 560 360 640 260 690', { color: AZU, w: 24 });
-    S.strike = arrow(sv, 'M180 400 C300 390 420 380 560 380 C680 380 760 380 860 380', { color: NAR, w: 40 });
-    S.half = [];
-  }, update(el, lt, t) {
-    S.fright.style.opacity = t > 53.02 && t < 56.75 ? (Math.floor(lt * 4) % 2 ? 1 : .35) : 1;
-    S.fcen.style.opacity = t < 58.63 ? .35 : 1;
-    const d = q15(prog(t, 56.75, 1.4)); place(S.allies, 400 - d * 130, 300 + d * 260);
-    setArrow(S.descend, prog(t, 56.75, 1.2));
-    setArrow(S.strike, prog(t, 58.63, 1.2));
-    const sp = easeOut(prog(t, 60.21, 0.6)); S.allies._units.forEach((u, i) => { const c = i % 7; u.setAttribute('transform', `translate(${c < 4 ? -sp * 60 : sp * 80},${c < 4 ? sp * 40 : -sp * 40})`); });
- }},
- { id: 's11', s: 61.55, e: 65.6, setup() {
-    const sv = document.getElementById('sv11');
-    S.castle = svgEl('g', {}, sv); svgEl('path', { d: 'M0 0 L0 -120 L30 -120 L30 -95 L55 -95 L55 -120 L85 -120 L85 -95 L110 -95 L110 -120 L140 -120 L140 0 Z', fill: ACE, stroke: INK, 'stroke-width': 7, 'stroke-linejoin': 'round' }, S.castle); svgEl('rect', { x: 52, y: -50, width: 36, height: 50, fill: INK }, S.castle);
-    S.pieces = [army(sv, { x: 620, y: 640, cols: 3, rows: 2, cell: 46, color: AZU }), army(sv, { x: 260, y: 640, cols: 3, rows: 2, cell: 46, color: NAR })];
-    S.h1 = svgEl('g', {}, sv); svgEl('path', { d: 'M-60 -500 L-60 0 Q-60 50 0 54 Q60 50 62 0 L62 -500 Z', fill: AZU, stroke: INK, 'stroke-width': 9 }, S.h1); svgEl('path', { d: 'M-52 30 Q-80 90 -62 130 Q-40 176 6 176 Q54 172 68 128 Q80 90 56 30 Z', fill: '#E79A8C', stroke: INK, 'stroke-width': 9 }, S.h1);
-    S.h2 = svgEl('g', {}, sv); svgEl('path', { d: 'M-60 -500 L-60 0 Q-60 50 0 54 Q60 50 62 0 L62 -500 Z', fill: NAR, stroke: INK, 'stroke-width': 9 }, S.h2); svgEl('path', { d: 'M-52 30 Q-80 90 -62 130 Q-40 176 6 176 Q54 172 68 128 Q80 90 56 30 Z', fill: '#E79A8C', stroke: INK, 'stroke-width': 9 }, S.h2);
-  }, update(el, lt, t) {
-    const up = q15(prog(t, 62.0, 1.2)); S.castle.setAttribute('transform', `translate(470,${640 - up * 230})`); S.castle.style.opacity = 1 - up; S.h1.setAttribute('transform', `translate(540,${(t < 62 ? 160 + prog(t, 61.6, .4) * 160 : 320) - up * 230}) rotate(-8)`);
-    const push = q15(prog(t, 63.41, 1.3)); S.h2.setAttribute('transform', `translate(${200 + push * 200},${560 + prog(t, 63.0, .4) * 0}) rotate(${-60 + push * 10})`); S.h2.style.display = t >= 63.0 ? 'block' : 'none';
-    place(S.pieces[1], 260 + push * 200, 640); place(S.pieces[0], 620 + push * 140, 640); S.pieces[0].style.opacity = 1 - push * .7;
- }},
+ 
+ ...SCENES_V2,
  { id: 's12', s: 65.6, e: 69.25, update(el, lt, t) { const k = prog(t, 67.6, 1.2); document.getElementById('c12').style.transform = `scale(${1 - k * .6})`; document.getElementById('c12').style.opacity = 1 - k * .7; } },
  { id: 's13', s: 69.25, e: 72.8 },
- { id: 's14', s: 72.8, e: 79.0, setup() {
-    const sv = document.getElementById('sv14'); grid(sv, 1000, 800);
-    mountains(sv, 520, 80, 520, 760, 8, 50); label(sv, 520, 40, 'CORDILLERA DE LOS ANDES', 24);
-    label(sv, 860, 760, 'MENDOZA', 24); label(sv, 160, 760, 'CHILE', 24);
-    S.dest = svgEl('circle', { cx: 170, cy: 420, r: 54, fill: 'none', stroke: INK, 'stroke-width': 6, 'stroke-dasharray': '14 10' }, sv);
-    S.cols = [130, 250, 370, 470, 600, 710].map((y, i) => arrow(sv, `M920 ${y} C760 ${y} 560 ${y + (420 - y) * .2} 420 ${y + (420 - y) * .5} C320 ${y + (420 - y) * .8} 260 420 230 420`, { color: NAR, w: 16 }));
-  }, update(el, lt, t) {
-    S.cols.forEach((a, i) => setArrow(a, prog(t, 75.48 + i * 0.12, 2.6)));
-    S.dest.setAttribute('stroke', t >= 77.4 ? NAR : INK); S.dest.setAttribute('stroke-width', t >= 77.4 ? 12 : 6);
- }},
- { id: 's15', s: 79.0, e: 80.6, setup() {
-    const a = document.getElementById('sv15a'), b = document.getElementById('sv15b');
-    S.c15a = [120, 300, 500, 700, 880].map(x => arrow(a, `M${x} 380 C${x} 260 ${500 + (x - 500) * .3} 160 500 90`, { color: NAR, w: 14 }));
-    S.c15b = [60, 120, 190, 250, 320, 370].map(y => arrow(b, `M940 ${y} C700 ${y} 420 ${210 + (y - 210) * .3} 140 210`, { color: NAR, w: 12 }));
-  }, update(el, lt) { S.c15a.forEach((x, i) => setArrow(x, prog(lt, i * .05, .6))); S.c15b.forEach((x, i) => setArrow(x, prog(lt, .2 + i * .05, .6))); }
- },
+ 
  { id: 's16', s: 80.6, e: DUR, update(el, lt) {
     const c = document.getElementById('g16'), x = c.getContext('2d'); x.clearRect(0, 0, 1080, 1920); const tq = q15(lt), cell = 36;
     for (let gy = 0; gy < 54; gy++) for (let gx = 0; gx < 30; gx++) { const cx = gx * cell + 18, cy = gy * cell + 18, dx = cx - 540, dy = cy - 900, r = Math.hypot(dx, dy);
@@ -349,9 +229,11 @@ const SCENES = [
       if (v < .6) { x.beginPath(); x.arc(cx, cy, R * .35, 0, 7); x.stroke(); } else if (v < .75) { x.beginPath(); x.arc(cx, cy, R * .8, 0, 7); x.stroke(); } else { x.beginPath(); x.arc(cx, cy, R, 0, 7); x.fill(); } }
     const k = Math.min(lt / .5, 1), st = Math.floor(k * 4) / 4; document.getElementById('logo').style.textShadow = `${-26 * (1 - st) - 6}px ${14 * (1 - st) + 5}px 0 var(--naranja), ${24 * (1 - st) + 6}px ${-16 * (1 - st) - 4}px 0 var(--verde)`;
  }},
+
 ];
+SCENES.sort((a, b) => a.s - b.s);
 window.SCENES = SCENES; window.DUR = DUR;
-document.fonts.ready.then(() => { boot(); window.READY = true; });
+Promise.all([document.fonts.ready, ...[...document.images].map(i => i.decode ? i.decode().catch(() => {}) : 0)]).then(() => { boot(); window.READY = true; });
 </script>
 </body>
 </html>

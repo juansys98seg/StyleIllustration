@@ -7,6 +7,8 @@ Estilo visual para explainers de política, tecnología y actualidad: ilustraci�
 - [`prompts/higgsfield.md`](prompts/higgsfield.md): kit de prompts para generar imágenes y animaciones con el estilo.
 - [`tools/trama_treat.py`](tools/trama_treat.py): convierte fotos (por ejemplo de Pexels) en recortes con el tratamiento TRAMA.
 - [`tools/trama_glifos.py`](tools/trama_glifos.py): trama de glifos (grilla de símbolos) a partir de una imagen.
+- [`engine/`](engine): motor de animación compartido (`trama.js`) y anotaciones a mano sobre mapas y fotos (`anota.js`).
+- [`tools/render_video.js`](tools/render_video.js) y [`tools/sfx.py`](tools/sfx.py): render de cuadros y efectos de sonido.
 - [`tools/qa_video.js`](tools/qa_video.js): control automático de las reglas duras.
 - [`examples/`](examples): pruebas del estilo.
 - [`pilots/`](pilots): videos piloto.

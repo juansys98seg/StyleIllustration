@@ -1,7 +1,7 @@
 # Piloto 02 — Napoleón (vertical 9:16, 83 s)
 
 - `GUION.md`: guion, plano por plano, notas de rigor y fuentes.
-- `index.html`: la animación, construida sobre el motor compartido `engine/` (mapas, ejércitos de glifos, flechas, tipografía cinética).
+- `index.html` + `scenes_v2.js`: la animación, sobre el motor compartido `engine/`. Las batallas usan mapas de época con cámara y dibujos a mano encima (`engine/anota.js`).
 - `audio/voz.mp3`: locución. `audio/cues.json`: efectos (papel, sellos, golpes). `audio/mezcla.wav`: voz + efectos.
 
 Armar el video (desde la raíz del repo):
@@ -22,4 +22,12 @@ Después mezclar y codificar con `ffmpeg` como en `pilots/huang-30s/README.md`.
 | Clausewitz (plano 13) | [Clausewitz](https://commons.wikimedia.org/wiki/File:Clausewitz.jpg) | Wilhelm Wach |
 | San Martín (plano 14) | [Retrato del general José de San Martín, 1818](https://commons.wikimedia.org/wiki/File:RETRATO_DEL_GENERAL_JOS%C3%89_DE_SAN_MART%C3%8DN_1818.jpg) | José Gil de Castro |
 
-Los mapas son esquemas dibujados en código (no son cartografía exacta) y lo dicen en pantalla.
+| Batalla de Austerlitz (planos 9–11) | [La bataille d'Austerlitz](https://commons.wikimedia.org/wiki/File:La_bataille_d%27Austerlitz._2_decembre_1805_(Fran%C3%A7ois_G%C3%A9rard)_(cropped,_1to1_portrait).jpg) (1810) | François Gérard |
+| Mapa de Toulon | [Siege of Toulon, 19 December 1793](https://commons.wikimedia.org/wiki/File:Siege_of_Toulon,_19_December_1793._A.K._Johnston_F.R.G.S._William_Blackwood_and_Sons,_Edinburgh_and_London._(to_accompany)_Atlas_to_(IA_dr_siege-of-toulon-19-december-1793-ak-johnston-frgs-william-blackwood-13200020).jpg) | A.K. Johnston (atlas de Alison, 1850) |
+| Mapa de Ulm | [Map of the operations which led to the Capitulation of Ulm](https://commons.wikimedia.org/wiki/File:Map_of_the_operations_which_led_to_the_Capitulation_of_Ulm_in_October_1805._A.K._Johnston_F.R.G.S._William_Blackwood_and_(IA_dr_map-of-the-operations-which-led-to-the-capitulation-of-ulm-in-october-1805-13200048).jpg) | A.K. Johnston (atlas de Alison, 1850) |
+| Mapa de Austerlitz | [Battle of Austerlitz, 2 December 1805](https://commons.wikimedia.org/wiki/File:Battle_of_Austerlitz,_2_December_1805._A.K._Johnston_F.R.G.S._William_Blackwood_and_Sons,_Edinburgh_and_London._(to_accompany)_(IA_dr_battle-of-austerlitz-2-december-1805-ak-johnston-frgs-william-black-13200049).jpg) | A.K. Johnston (atlas de Alison, 1850) |
+| Plano de Montenotte | [Plan No.02 Montenotte](https://commons.wikimedia.org/wiki/File:Plan_No.02_Montenotte.jpg) | Scheffner |
+
+Foto de los Andes: [Aerial view of the Andes mountains in Chile](https://www.pexels.com/photo/aerial-view-of-the-andes-mountains-in-chile-37056464/), Marilia B. C. (Pexels).
+
+Las flechas, unidades y círculos dibujados sobre los mapas son ilustrativos: muestran la idea de cada maniobra, no posiciones exactas.

@@ -25,6 +25,9 @@ const {chromium}=require('playwright'); const path=require('path');
       const blocks=[...sc.querySelectorAll('.cut,.mapa,.ruler,.libro,svg.abs')].filter(m=>getComputedStyle(m).visibility!=='hidden'&&getComputedStyle(m).display!=='none'&&+getComputedStyle(m).opacity>0.05).map(m=>m.getBoundingClientRect());
       for(const ln of sc.querySelectorAll('.kin .w')){ if(getComputedStyle(ln.closest('.kin')).visibility==='hidden'||+getComputedStyle(ln).opacity===0) continue; const a=ln.getBoundingClientRect();
         for(const bx of blocks){ const ix=Math.min(a.right,bx.right)-Math.max(a.left,bx.left), iy=Math.min(a.bottom,bx.bottom)-Math.max(a.top,bx.top); if(ix>6&&iy>6){ out.push(`texto tapado por una imagen: "${ln.textContent}"`); break; } } }
+      for(const tx of sc.querySelectorAll('.mapwrap svg text, svg.overlay text, .pane svg text')){ const g=tx.closest('g'); if(!g||g.style.display==='none'||getComputedStyle(tx).visibility==='hidden') continue; let hidden=false; for(let e=tx;e&&e!==sc;e=e.parentElement){ if(e.style&&e.style.display==='none'){hidden=true;break;} } if(hidden) continue;
+        const b=tx.getBoundingClientRect(); if(!b.width) continue; const clip=tx.closest('.pane'); const R=clip?clip.getBoundingClientRect():{left:0,right:W,top:0,bottom:H};
+        if(b.left<R.left+4||b.right>R.right-4||b.top<R.top+4||b.bottom>R.bottom-4) out.push(`etiqueta cortada por el borde: "${tx.textContent.slice(0,30)}"`); }
       const media=[...sc.querySelectorAll('img,svg,canvas')].map(m=>m.getBoundingClientRect()).map(b=>Math.max(0,Math.min(b.right,W)-Math.max(b.left,0))*Math.max(0,Math.min(b.bottom,H)-Math.max(b.top,0))/(W*H));
       if(!media.some(a=>a>=0.12)) out.push('sin imagen/ilustración/gráfico de peso (≥12 % del cuadro)');
       return out; },id);
