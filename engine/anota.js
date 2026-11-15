@@ -96,3 +96,33 @@ function mapCam(el, keys, t) {
   const cx = a[1] + (b[1] - a[1]) * k, cy = a[2] + (b[2] - a[2]) * k, z = a[3] + (b[3] - a[3]) * k;
   el.style.transform = `translate(${540 - cx * z}px,${1080 - cy * z}px) scale(${z})`;
 }
+
+// ---------- Vistas de foto/mapa reutilizables (desde el piloto 03) ----------
+// Coordenadas normalizadas: x de 0 a 1000 sobre el ancho; y de 0 a 1000·alto/ancho.
+// photoView('mw1', {src, W, H}) → {wrap, sv, m}. Dibujar en sv con esas coordenadas.
+function photoView(wrapId, { src, W, H }) {
+  const m = { src, W, H, x0: 0, y0: 0, pw: 1000, ph: 1000 * H / W }, wrap = document.getElementById(wrapId);
+  wrap.style.width = W + 'px'; wrap.style.height = H + 'px';
+  const img = document.createElement('img'); img.src = src; img.style.width = W + 'px'; img.style.height = H + 'px'; wrap.appendChild(img);
+  const sv = svgEl('svg', { width: W, height: H, viewBox: `0 0 ${m.pw} ${m.ph}` }); wrap.appendChild(sv);
+  return { wrap, sv, m };
+}
+// Cámara: centra el punto (cx, cy) del material en el punto (vx, vy) del cuadro, con zoom z.
+function viewAt(v, cx, cy, z, vx = 540, vy = 1330) { const X = (cx - v.m.x0) * v.m.W / v.m.pw, Y = (cy - v.m.y0) * v.m.H / v.m.ph; v.wrap.style.transform = `translate(${vx - X * z}px,${vy - Y * z}px) scale(${z})`; }
+// keys = [[t, cx, cy, zoom], ...] interpolados con easeInOut cúbico (sin pasos).
+function viewCam(v, keys, t, vx, vy) {
+  let a = keys[0], b = keys[keys.length - 1];
+  for (let i = 0; i < keys.length - 1; i++) if (t >= keys[i][0] && t <= keys[i + 1][0]) { a = keys[i]; b = keys[i + 1]; break; }
+  if (t < keys[0][0]) b = a; if (t > keys[keys.length - 1][0]) a = b;
+  const k = a === b ? 0 : ease.io(clamp((t - a[0]) / (b[0] - a[0])));
+  viewAt(v, a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k, a[3] + (b[3] - a[3]) * k, vx, vy);
+}
+const prg = (t, a, d) => clamp((t - a) / d);
+// Ícono que entra con rebote: g._p = [x, y, escala]
+function popIn(g, k) { const [x, y, s] = g._p; g.style.display = k <= 0 ? 'none' : 'block'; if (k > 0) g.setAttribute('transform', `translate(${x},${y}) scale(${s * Math.max(.01, back(clamp(k)))})`); }
+function heartIcon(parent, x, y, s = 1, color = '#EE6A1F') { const g = svgEl('g', {}, parent);
+  svgEl('path', { d: 'M0 6 C-14 -4 -10 -16 0 -9 C10 -16 14 -4 0 6 Z', fill: color, stroke: '#17140F', 'stroke-width': 2, 'stroke-linejoin': 'round' }, g); g._p = [x, y, s]; g.style.display = 'none'; return g; }
+function personIcon(parent, x, y, s = 1, color = '#F2E6CF') { const g = svgEl('g', {}, parent);
+  svgEl('circle', { cx: 0, cy: -9, r: 5, fill: color, stroke: '#17140F', 'stroke-width': 1.6 }, g); svgEl('path', { d: 'M-8 9 Q-8 -2 0 -2 Q8 -2 8 9 Z', fill: color, stroke: '#17140F', 'stroke-width': 1.6 }, g);
+  g._p = [x, y, s]; g.style.display = 'none'; return g; }
+function jaggedEdge(el, seed) { const pts = ['0% 0%', '100% 0%']; for (let i = 0; i <= 40; i++) pts.push(`${100 - i * 2.5}% ${93 + hash(seed + i) * 6}%`); el.style.clipPath = `polygon(${pts.join(',')})`; }

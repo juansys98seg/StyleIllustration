@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Piloto 03 — Bernays</title>
+<link rel="stylesheet" href="../../engine/trama.css">
+<style>
+.ln.key{font-size:108px}
+.ln.num{font-family:"Bricolage";font-weight:800;font-stretch:75%;font-size:200px;line-height:.95;letter-spacing:-.03em}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 · El desfile -->
+<div class="scene map" id="s1">
+  <div class="mapview"><div class="mapwrap" id="v1"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Nueva York · 31/03/1929</div>
+  <div class="fuente" style="top:1610px;z-index:7">Foto de 1910 (referencia) · Library of Congress</div>
+  <div class="kin" data-lines='[["in","En 1929, en pleno desfile de Pascua en Nueva York,",0.22,3.45],["key","un grupo de mujeres prendió cigarrillos",3.67,5.60],["tail","frente a los fotógrafos.",5.60,6.51]]'></div>
+</div>
+
+<!-- 2 · Protesta o publicidad (aviso real de 1929) -->
+<div class="scene map" id="s2">
+  <div class="mapview"><div class="mapwrap" id="v2"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Aviso de Lucky Strike · 1929</div>
+  <div class="sello pz" data-at="2.4" style="left:520px;top:1450px;color:var(--verde);transform:rotate(-7deg);z-index:8">CONFIRMADO</div>
+  <div class="fuente" style="top:1610px;z-index:7">Theatre Magazine, dic. 1929 · dominio público</div>
+  <div class="kin" data-lines='[["in","Parecía una protesta feminista.",6.96,8.47],["key","Era una campaña para vender tabaco.",8.81,10.52]]'></div>
+</div>
+
+<!-- 3 · Bernays, sobrino de Freud -->
+<div class="scene" id="s3" style="background:var(--papel)">
+  <div class="cam">
+    <div class="giant" data-slide="-160" style="left:-20px;top:1420px">FREUD</div>
+    <div class="circ trama pz" data-at="0" style="left:60px;top:860px;width:480px;height:480px;--t:.25"></div>
+    <img class="cut pz drift" data-at="0.05" data-drift="-25" src="assets/bernays.png" style="left:70px;top:820px;width:430px;transform:rotate(-3deg)">
+    <img class="cut pz drift" data-at="0.9" data-drift="25" src="assets/freud.png" style="left:580px;top:900px;width:400px;transform:rotate(3deg)">
+    <svg class="overlay" id="o3" style="position:absolute;left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+    <div class="credito" style="left:84px;top:1600px">Retratos: Bernays, 1917 · Freud, M. Halberstadt, 1921 · dominio público</div>
+  </div>
+  <div class="kin" data-lines='[["in","Detrás estaba Edward Bernays,",10.87,12.51],["key","sobrino de Sigmund Freud.",12.72,13.94],["tail","El hombre que inventó las relaciones públicas.",14.15,16.25]]'></div>
+</div>
+
+<!-- 4 · Truco 1: lo que el producto dice de vos -->
+<div class="scene map" id="s4">
+  <div class="mapview"><div class="mapwrap" id="v4"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Truco 1 · Identidad</div>
+  <div class="sello pz" data-at="4.0" style="left:600px;top:1450px;color:var(--tinta);transform:rotate(-6deg);z-index:8">ANÁLISIS</div>
+  <div class="fuente" style="top:1610px;z-index:7">Theatre Magazine, dic. 1929 · dominio público</div>
+  <div class="kin" data-lines='[["in","Bernays se dio cuenta de algo: la gente no compra productos.",16.69,19.84],["key","Compra lo que el producto dice de ella.",20.12,21.93]]'></div>
+</div>
+
+<!-- 5 · Antorchas de la libertad -->
+<div class="scene map" id="s5">
+  <div class="mapview"><div class="mapwrap" id="v5"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Truco 1 · Identidad</div>
+  <div class="fuente" style="top:1610px;z-index:7">Foto: N. FaLon / Pexels</div>
+  <div class="kin" data-lines='[["in","Por eso la campaña llamó a los cigarrillos",22.31,23.90],["key","“antorchas de la libertad”.",23.90,25.43]]'></div>
+</div>
+
+<!-- 6 · Truco 2: que otro lo diga por vos -->
+<div class="scene map" id="s6">
+  <div class="mapview"><div class="mapwrap" id="v6"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Truco 2 · Autoridad</div>
+  <div class="fuente" style="top:1610px;z-index:7">Foto: H. Santos / Pexels</div>
+  <div class="kin" data-show="[25.70,29.60]" data-lines='[["in","Su segundo truco:",25.86,26.66],["key","que otro lo diga por vos.",26.96,28.17],["tail","Para vender panceta,",28.63,29.53]]'></div>
+  <div class="kin" data-show="[29.60,33.10]" data-lines='[["in","consiguió que",29.73,30.40],["key","miles de médicos recomendaran un desayuno abundante.",30.40,32.92]]'></div>
+  <div class="kin" data-show="[33.10,35.95]" data-lines='[["in","Y los diarios lo publicaron",33.23,34.40],["key","como un consejo de salud.",34.40,35.67]]'></div>
+</div>
+
+<!-- 7 · Truco 3: Guatemala -->
+<div class="scene map" id="s7">
+  <div class="mapview"><div class="mapwrap" id="v7"></div></div>
+  <img class="cut pz" data-at="5.6" id="arbenz7" src="assets/arbenz.png" style="left:720px;top:1200px;width:270px;transform:rotate(4deg);z-index:7">
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Truco 3 · La historia</div>
+  <div class="fuente" style="top:1610px;z-index:7">Mapa: dominio público · Retrato de J. Árbenz, 1951</div>
+  <div class="kin" data-show="[35.90,39.80]" data-lines='[["in","El tercero:",36.09,36.62],["key","si controlás la historia, controlás la política.",36.87,39.41]]'></div>
+  <div class="kin" data-show="[39.80,44.70]" data-lines='[["in","Trabajó para la United Fruit, y presentó al gobierno de Guatemala",39.88,43.00],["key","como una amenaza comunista.",43.00,44.40]]'></div>
+  <div class="kin" data-show="[44.70,46.40]" data-lines='[["key","En 1954,",44.75,46.27]]'></div>
+</div>
+
+<!-- 8 · El documento de la CIA -->
+<div class="scene map" id="s8">
+  <div class="mapview"><div class="mapwrap" id="v8"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">CIA · documento desclasificado</div>
+  <div class="sello pz" data-at="1.0" style="left:560px;top:1450px;color:var(--verde);transform:rotate(-6deg);z-index:8">CONFIRMADO</div>
+  <div class="fuente" style="top:1610px;z-index:7">CIA, liberado por FOIA en 1975 · dominio público</div>
+  <div class="kin" data-lines='[["in","un golpe apoyado por la CIA",46.46,47.60],["key","lo derrocó.",47.60,48.38]]'></div>
+</div>
+
+<!-- 9 · Propaganda (1928) -->
+<div class="scene" id="s9" style="background:var(--papel)">
+  <div class="cam">
+    <div class="giant" data-slide="-160" style="left:-20px;top:1440px">1928</div>
+    <div class="circ trama pz" data-at="0" style="left:520px;top:1040px;width:460px;height:460px;--t:.25"></div>
+    <img class="cut pz drift" data-at="0.05" data-drift="-25" src="assets/bernays2.png" style="left:560px;top:960px;width:440px;transform:rotate(3deg)">
+    <div class="quote pz drift" data-at="0.3" data-drift="20" style="left:90px;top:1180px;width:460px;transform:rotate(-2deg)">
+      <div style="font-family:Bricolage;font-weight:800;font-size:64px;line-height:1">Propaganda</div>
+      <div style="font-family:Plex;font-size:22px;margin-top:12px;letter-spacing:.06em">EDWARD L. BERNAYS · 1928</div>
+    </div>
+    <div class="sello pz" data-at="1.2" style="left:120px;top:1060px;color:var(--tinta);transform:rotate(-7deg)">DIJO</div>
+    <div class="credito" style="left:84px;top:1600px">Foto: Bernays y Doris Fleischman, 1923 · dominio público</div>
+  </div>
+  <div class="kin" data-hl="key" data-lines='[["in","En su libro “Propaganda” escribió que manipular la opinión de las masas era",48.76,52.54],["key","“un elemento importante de la sociedad democrática”.",52.68,55.11]]'></div>
+</div>
+
+<!-- 10 · Cien años después -->
+<div class="scene map" id="s10">
+  <div class="mapview"><div class="mapwrap" id="v10"></div></div>
+  <img class="cut" id="diario10" src="assets/diario.jpg" style="left:200px;top:820px;width:680px;border:8px solid #fff;box-shadow:16px 16px 0 var(--tinta);z-index:5">
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">1929 → hoy</div>
+  <div class="fuente" style="top:1610px;z-index:7" id="fuente10">Santa Ana Register, 28/10/1929 · Orange County Archives (CC BY 2.0)</div>
+  <div class="kin" data-lines='[["in","Cien años después, sus trucos siguen ahí.",55.61,57.75],["key","Solo cambiaron de formato.",58.00,59.17]]'></div>
+</div>
+
+<!-- 11 · Marcas e identidad -->
+<div class="scene map" id="s11">
+  <div class="mapview"><div class="mapwrap" id="v11"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Hoy · Truco 1</div>
+  <div class="sello pz" data-at="2.2" style="left:90px;top:1450px;color:var(--tinta);transform:rotate(-5deg);z-index:8">ANÁLISIS</div>
+  <div class="fuente" style="top:1610px;z-index:7">Foto: A. Navlakha / Pexels</div>
+  <div class="kin" data-lines='[["in","Las antorchas de la libertad hoy son",59.56,61.20],["key","marcas que te venden una identidad.",61.20,62.95]]'></div>
+</div>
+
+<!-- 12 · Influencers -->
+<div class="scene map" id="s12">
+  <div class="mapview"><div class="mapwrap" id="v12"></div></div>
+  <div class="abs pz" data-at="0.3" style="left:70px;top:1180px;width:300px;height:330px;overflow:hidden;border:7px solid #fff;box-shadow:12px 12px 0 var(--tinta);transform:rotate(-4deg);z-index:6"><img src="assets/desayuno.jpg" style="position:absolute;width:640px;left:-60px;top:-430px"></div>
+  <svg class="overlay" id="o12" style="position:absolute;left:0;top:0;z-index:6" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Hoy · Truco 2</div>
+  <div class="fuente" style="top:1610px;z-index:7">Foto: Mizuno K / Pexels</div>
+  <div class="kin" data-lines='[["in","Los médicos de la panceta",63.33,64.50],["key","hoy son influencers.",64.50,65.61]]'></div>
+</div>
+
+<!-- 13 · Algoritmos -->
+<div class="scene map" id="s13">
+  <div class="mapview"><div class="mapwrap" id="v13"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Hoy · Truco 3</div>
+  <div class="fuente" style="top:1610px;z-index:7">Foto: I'm Zion / Pexels</div>
+  <div class="kin" data-lines='[["in","Y en vez de diarios,",65.91,66.79],["key","hay algoritmos que saben qué te emociona.",66.98,68.98]]'></div>
+</div>
+
+<!-- 14 · Cambridge Analytica -->
+<div class="scene map" id="s14">
+  <div class="mapview"><div class="mapwrap" id="v14"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="ficha">Cambridge Analytica · 2018</div>
+  <div class="sello pz" data-at="3.0" style="left:560px;top:1450px;color:var(--verde);transform:rotate(-6deg);z-index:8">CONFIRMADO</div>
+  <div class="fuente" style="top:1610px;z-index:7">FUENTE · Facebook — 04/04/2018 · Foto: B. Hamer / Pexels</div>
+  <div class="kin" data-lines='[["in","En 2018 se supo que Cambridge Analytica usó datos de hasta",69.47,73.00],["key","87 millones de usuarios de Facebook",73.00,75.23],["tail","para segmentar mensajes políticos.",75.45,77.13]]'></div>
+</div>
+
+<!-- 15 · Un desfile / tu pantalla -->
+<div class="scene" id="s15" style="background:var(--mostaza)">
+  <div class="cam" data-free="1">
+    <div class="pane" style="top:780px;height:400px"><div class="mapwrap" id="v15a"></div></div>
+    <div class="pane" style="top:1230px;height:400px"><div class="mapwrap" id="v15b"></div></div>
+    <div class="meta" style="left:70px;top:790px;background:var(--papel);padding:4px 10px;z-index:3">1929 · un desfile y los diarios</div>
+    <div class="meta" style="left:70px;top:1240px;background:var(--papel);padding:4px 10px;z-index:3">Hoy · tu pantalla</div>
+  </div>
+  <div class="kin" data-lines='[["in","Bernays necesitaba un desfile y los diarios.",77.52,79.79],["key","Hoy alcanza con tu pantalla.",80.12,81.42]]'></div>
+</div>
+
+<!-- 16 · La pregunta -->
+<div class="scene map" id="s16">
+  <div class="mapview"><div class="mapwrap" id="v16"></div></div>
+  <div class="cabwrap"><div class="cabecera"></div></div>
+  <div class="fuente" style="top:1610px;z-index:7">Foto: D. Grey_Owl / Pexels</div>
+  <div class="kin" data-lines='[["in","La pregunta no es si te están persuadiendo.",81.75,83.75],["key","Es quién.",84.03,84.57]]'></div>
+</div>
+
+<!-- 17 · cierre -->
+<div class="scene" id="s17" style="background:var(--tinta)">
+  <canvas id="g17" width="1080" height="1920" class="abs" style="left:0;top:0"></canvas>
+  <div class="abs" id="logo" style="left:0;right:0;top:780px;text-align:center;font-family:Bricolage;font-weight:800;font-stretch:75%;font-size:230px;line-height:1;color:var(--papel)">TRAMA</div>
+  <div class="abs" style="left:0;right:0;top:1030px;text-align:center;font-family:Plex;font-size:28px;letter-spacing:.12em;color:var(--papel);opacity:.8">FUENTES EN LA DESCRIPCIÓN</div>
+</div>
+
+<div class="plate" id="pl1" style="background:var(--naranja)"></div>
+<div class="plate" id="pl2" style="background:var(--verde)"></div>
+<div class="plate" id="pl3" style="background:var(--mostaza)"></div>
+<div id="grain"></div>
+</div>
+<script src="../../engine/trama.js"></script>
+<script src="../../engine/anota.js"></script>
+<script>
+const DUR = 87.9;
+window.PLATES = [10.7, 25.7, 35.9, 55.4, 77.4];
+const INK = '#17140F', PAP = '#F2E6CF', NAR = '#EE6A1F', VER = '#1F6E55', AZU = '#2E5A9E', MOS = '#F3A72B';
+const PH = { desfile: [2400, 1755], mapa_ca: [1920, 1440], cia: [1300, 1655], lucky: [1300, 1853], libertad: [1400, 1865], desayuno: [1400, 2099], influencer: [1400, 2100], feed: [1400, 2100], ojo: [1400, 2100], timessq: [1400, 2488], calle: [1400, 2100] };
+const V = n => ({ src: `assets/${n}.jpg`, W: PH[n][0], H: PH[n][1] });
+const S = {};
+</script>
+<script src="scenes.js"></script>
+<script>
+window.SCENES = SCENES; window.DUR = DUR;
+const imgsReady = () => Promise.all([...document.images].map(i => i.decode ? i.decode().catch(() => {}) : 0));
+document.fonts.ready.then(imgsReady).then(() => { boot(); return imgsReady(); }).then(() => { render(0); window.READY = true; });
+</script>
+</body>
+</html>
